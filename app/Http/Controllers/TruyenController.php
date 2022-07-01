@@ -51,6 +51,7 @@ class TruyenController extends Controller
                 'kichhoat'    => 'required',
                 'danhmuc'     => 'required',
                 'theloai'     => 'required',
+                'truyennoibat'     => 'required',
             ],
             [
                 'tentruyen.unique'     => 'Tên Truyện đã có, xin điền tên khác',
@@ -71,10 +72,11 @@ class TruyenController extends Controller
         $truyen->tacgia = $data['tacgia'];
         $truyen->kichhoat = $data['kichhoat'];
         $truyen->danhmuc_id = $data['danhmuc'];
+        $truyen->truyen_noibat = $data['truyennoibat'];
 
         // Thêm ảnh vào folder 
         $get_image = $request->hinhanh;
-        $path = 'public/uploads/truyen';
+        $path = 'public/uploads/truyen/';
         $get_name_image = $get_image->getClientOriginalName();       // hinh1.jpg
         $name_image = current(explode('.',$get_name_image));         // hinh 1  .  jpg
         $new_image = $name_image.rand(0,99).'.'.$get_image->getClientOriginalExtension();    // hinh123.jpg
@@ -129,6 +131,7 @@ class TruyenController extends Controller
                 'kichhoat'    => 'required',
                 'danhmuc'     => 'required',
                 'theloai'     => 'required',
+                'truyennoibat'     => 'required',
             ],
             [
                 'tentruyen.required'   => 'Phải nhập Tên Truyện',
@@ -146,6 +149,7 @@ class TruyenController extends Controller
         $truyen->tomtat = $data['tomtat'];
         $truyen->kichhoat = $data['kichhoat'];
         $truyen->danhmuc_id = $data['danhmuc'];
+        $truyen->truyen_noibat = $data['truyennoibat'];
 
         // Thêm ảnh vào folder 
         $get_image = $request->hinhanh;
@@ -183,5 +187,9 @@ class TruyenController extends Controller
 
         Truyen::find($id)->delete();
         return redirect()->back()->with('status', 'Xóa truyện thành công!');
+    }
+
+    public function truyennoibat(Request $request){
+
     }
 }

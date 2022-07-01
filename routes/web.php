@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DanhmucController;
 use App\Http\Controllers\TruyenController;
 use App\Http\Controllers\ChapterController;
+use App\Http\Controllers\SachController;
 use App\Http\Controllers\IndexController;
 /*
 |--------------------------------------------------------------------------
@@ -27,9 +28,18 @@ Route::get('/xem-chapter/{slug}', [IndexController::class, 'xemchapter']);
 
 Route::get('/the-loai/{slug}', [IndexController::class, 'theloai']);
 
+Route::get('/doc-truyen', [IndexController::class, 'doctruyen']);
+Route::get('/doc-sach', [IndexController::class, 'docsach']);
+
+Route::get('/tim-kiem', [IndexController::class, 'timkiem']);
+// Route::post('/timkiem-ajax', [IndexController::class, 'timkiem_ajax']);
+
+Route::post('/truyennoibat', [TruyenController::class, 'truyennoibat']);
+
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::resource('/danhmuc', DanhmucController::class);
 Route::resource('/truyen', TruyenController::class);
+Route::resource('/sach', SachController::class);
 Route::resource('/chapter', ChapterController::class);

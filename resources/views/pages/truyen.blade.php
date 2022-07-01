@@ -5,17 +5,18 @@
 @section('content')
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Home</a></li>
-      <li class="breadcrumb-item"><a href="#">Library</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Data</li>
+      <li class="breadcrumb-item"><a href="{{url('/')}}">Trang chủ</a></li>
+      <li class="breadcrumb-item"><a href="{{url('danh-muc/'.$truyen->danhmuctruyen->slug_danhmuc)}}"> {{$truyen->danhmuctruyen->tendanhmuc}} </a></li>
+      <li class="breadcrumb-item active" aria-current="page"> {{$truyen->tentruyen}} </li>
     </ol>
 </nav>
 
 <div class="row">
+    {{-- Trang chính --}}
     <div class="col-md-9">
         <div class="row">
             <div class="col-md-3"> 
-                <img class="card-img-top" src="{{asset('public/uploads/truyen/.$truyen->hinhanh')}}">    
+                <img class="card-img-top" src="{{asset('public/uploads/truyen/'.$truyen->hinhanh)}}">    
             </div>
             <div class="col-md-9">
                 <style type="text/css">
@@ -25,11 +26,22 @@
                 </style>
 
                 <ul class="infortruyen">
+                    {{-- Chia sẻ Facebook --}}
+                    <div class="fb-share-button" data-href="{{\URL::current()}}" data-layout="button_count" data-size="large">
+                        <a target="_blank" href="{{\URL::current()}}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">
+                            Chia sẻ
+                        </a>
+                    </div>
+                    
                     <li> Tên truyện: {{$truyen->tentruyen}} </li>
                     <li> Tác giả: {{$truyen->tacgia}} </li>
                     <li> 
                         Danh mục truyện: 
                         <a href="{{url('danh-muc/'.$truyen->danhmuctruyen->slug_danhmuc)}}"> {{$truyen->danhmuctruyen->tendanhmuc}} </a>
+                    </li>
+                    <li> 
+                        Thể loại truyện: 
+                        <a href="{{url('the-loai/'.$truyen->theloai->slug_theloai)}}"> {{$truyen->theloai->tentheloai}} </a>
                     </li>
                     <li> Số chapter: 100 </li>
                     <li> Lượt xem: 100 </li>
@@ -37,6 +49,9 @@
 
                     @if($chapter_dau)
                         <li> <a href="{{url('xem-chapter/'.$chapter_dau->slug_chapter)}}" class="btn btn-primary"> Đọc Online </a> </li>
+                        {{-- <li> <a href="{{url('xem-chapter/'.$chapter_dau->truyen->slug_truyen.'/'.$chapter_dau->slug_chapter)}}" class="btn btn-primary"> Đọc Online </a> </li> --}}
+                        <li> <a href="{{url('xem-chapter/'.$chapter_moinhat->slug_chapter)}}" class="btn btn-success mt-2"> Đọc chương mới nhất </a> </li>
+
                     @else
                         <li> <a class="btn btn-danger"> Hiện tại chưa có chương để đọc </a> </li>
                     @endif
@@ -61,13 +76,15 @@
                 <li> Mục lục đang cập nhật... </li>
             @endif
         </ul>
+        <div class="fb-like" data-href="{{\URL::current()}}" data-width="" data-layout="button_count" data-action="like" data-size="large" data-share="true"></div>
+        <div class="fb-comments" data-href="{{\URL::current()}}" data-width="100%" data-numposts="20"> </div>
 
         <h4>Sách cùng danh mục</h4>
         <div class="row">
             @foreach($cungdanhmuc as $key => $value)
                 <div class="col-md-3">
                     <div class="card mb-3 box-shadow">
-                    <img class="card-img-top" src="{{asset('public/uploads/truyen/.$value->hinhanh')}}">
+                    <img class="card-img-top" src="{{asset('public/uploads/truyen/'.$value->hinhanh)}}">
                     <div class="card-body">
                         <h5>{{$value->tentruyen}}</h5>
                         <p class="card-text">{{$value->tomtat}}</p>
@@ -83,6 +100,47 @@
             @endforeach
         </div>
     </div>
+
+
+    {{-- Truyện nổi bật --}}
+    <div class="col-md-3">
+        <h3 class="card-header"> Truyện nổi bật </h3>
+        @foreach ($truyennoibat as $key => $noibat)
+            <div class="row mt-2 sidebar">
+                <div class="col-md-5">
+                    <a href="{{url('xem-truyen/'.$noibat->slug_truyen)}}">
+                        <img class="img img-responsive" width="100%" class="card-img-top" 
+                        src="{{asset('public/uploads/truyen/'.$noibat->hinhanh)}}" alt="{{$noibat->tentruyen}}">
+                    </a>
+                </div>
+                <div class="col-md-7">
+                    <a href="{{url('xem-truyen/'.$noibat->slug_truyen)}}">
+                        <p> {{$noibat->tentruyen}} </p>
+                    </a>
+                    <p> <i class="fas fa-eye"></i> </p>
+                </div>
+            </div>
+        @endforeach
+
+        <h3 class="card-header"> Truyện xem nhiều </h3>
+        @foreach ($truyenxemnhieu as $key => $xemnhieu)
+            <div class="row mt-2  sidebar">
+                <div class="col-md-5">
+                    <a href="{{url('xem-truyen/'.$xemnhieu->slug_truyen)}}">
+                        <img class="img img-responsive" width="100%" class="card-img-top" 
+                        src="{{asset('public/uploads/truyen/'.$xemnhieu->hinhanh)}}" alt="{{$xemnhieu->tentruyen}}">
+                    </a>
+                </div>
+                <div class="col-md-7">
+                    <a href="{{url('xem-truyen/'.$xemnhieu->slug_truyen)}}">
+                        <p> {{$xemnhieu->tentruyen}} </p>
+                    </a>
+                    <p> <i class="fas fa-eye"></i> </p>
+                </div>
+            </div>
+        @endforeach
+    </div>
+
 </div>
 
 @endsection

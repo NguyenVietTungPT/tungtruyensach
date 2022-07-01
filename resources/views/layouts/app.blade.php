@@ -84,9 +84,12 @@
         </main>
     </div>
 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script>
     <script src="//cdn.ckeditor.com/4.16.0/full/ckeditor.js"> </script>
     <script type="text/javascript">
         CKEDITOR.replace('noidung_chapter');
+        // CKEDITOR.replace('ckeditor_truyen');
+        CKEDITOR.replace('ckeditor_sach');
     </script>
 
     {{-- Slug --}}
@@ -122,6 +125,37 @@
                     //In slug ra textbox có id “slug”
                 document.getElementById('convert_slug').value = slug;
             } 
+    </script>
+
+    {{-- Truyện nổi bật --}}
+    <script type="text/javascript">
+        $('.truyennoibat').change(function(){
+            const truyennoibat = $(this).val();
+            const truyen_id = $(this).data('truyen_id');
+            var _token = $('input[name="_token"]').val();
+
+            if(truyennoibat == 0) {
+                var thongbao = 'Thay đổi truyện mới thành công!';
+            }
+            else if(truyennoibat == 1) {
+                var thongbao = 'Thay đổi truyện đọc nhiều thành công!';
+            }
+            else {
+                var thongbao = 'Thay đổi truyện nổi bật thành công!';
+            }
+
+            $.ajax({
+                url:"{{url('/truyennoibat')}}",
+                method:"POST",
+                data:{truyennoibat:truyennoibat, truyen_id:truyen_id, _token:_token},
+                succcess:function(data)
+                {
+                    $('#thongbao').html('<span class="text text-alert">'+thongbao+'</span>');
+                    // alert(thongbao);
+                }
+            });
+        })
+
     </script>
 
 </body>

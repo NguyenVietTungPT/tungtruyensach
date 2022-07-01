@@ -11,6 +11,7 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/truyensach.css') }}" rel="stylesheet">
         <link href="{{ asset('css/owl.carousel.min.css') }}" rel="stylesheet">
         <link href="{{ asset('css/owl.theme.default.min.css') }}" rel="stylesheet">
         <link rel="stylesheet" style="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -42,9 +43,23 @@
                       <a class="nav-link" href="{{url('/')}}">Trang chủ <span class="sr-only">(current)</span></a>
                     </li>
 
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{url('doc-truyen')}}">
+                        <i class="fas fa-book"> </i> Đọc Truyện
+                        <span class="sr-only"> </span>
+                      </a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{url('doc-sach')}}">
+                        <i class="fas fa-book"> </i> Đọc Sách
+                        <span class="sr-only"> </span>
+                      </a>
+                    </li>
+
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Danh mục truyện
+                        <i classs="fa fa-list-ul" aria-hidden="true"></i> Danh mục truyện
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         @foreach($danhmuc as $key =>$danh)
@@ -55,7 +70,7 @@
 
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Thể loại truyện
+                        <i class="fa fa-tags" aria-hidden="true"> </i> Thể loại 
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         @foreach($theloai as $key =>$the)
@@ -64,12 +79,38 @@
                       </div>
                     </li>
                   </ul>
-                  <form class="form-inline my-2 my-lg-0" style="display: flex; ">
-                    <input class="form-control mr-sm-2" type="search" style ="height: 40px; margin-right: 10px" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style ="height: 40px; width: 120px;">Tìm kiếm</button>
-                  </form>
                 </div>
-              </nav>
+            </nav>
+
+            <div class="row">
+              <div class="col-md-12">
+                <form autocomplete="off" class="form-inline my-2 my-lg-0" style="display: flex;" action="{{url('tim-kiem')}}" method="GET">
+                  @csrf
+                  <input class="form-control mr-sm-2" type="search" id="keywords" name="tukhoa" style ="height: 40px; margin-right: 10px" placeholder="Tìm kiếm tác giả, truyện,..." aria-label="Search">
+                  <div id="search_ajax"> </div>
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style ="height: 40px; width: 120px;">Tìm kiếm</button>
+                </form>
+              </div>
+            </div>  
+
+            {{-- Tìm kiếm nâng cao
+            <div class="row">
+              <div class="col-md-12">
+                // autocomplete: Không lưu lại từ khóa ở thanh tìm kiếm sau khi tìm kiếm 
+                <form autocomplete="off" class="form-inline my-2 my-lg-0" style="display: flex;" action="{{url('tim-kiem')}}" method="POST">
+                  @csrf
+                  <input class="form-control mr-sm-2" type="search" id="keywords" name="tukhoa" style ="height: 40px; margin-right: 10px" placeholder="Tìm kiếm tác giả, truyện,..." aria-label="Search">
+                  <div id="search_ajax"> </div>
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style ="height: 40px; width: 120px;">Tìm kiếm</button>
+                </form>
+              </div>
+            </div> --}}
+
+            <select class="custom-select mr-sm-2" id="switch_color">
+              <option value="xam"> Xám </option>
+              <option value="den"> Đen </option>
+            </select>
+                
 
             {{-- Slide --}}
             @yield('slide')
@@ -97,6 +138,37 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"> </script>
         <script src="//cdn.ckeditor.com/4.16.0/full/ckeditor.js"> </script>
         
+        {{-- Tìm kiếm nâng cao --}}
+        <script type="text/javascript">
+          $('#keywords').keyup(function(){
+            var keywords = $(this).val();
+              if( keywords != '' )
+              {
+                var _token = $('input[name="_token"]').val();
+                $.ajax({
+                  url:"{{url('/timkiem-ajax')}}",
+                  method:"POST",
+                  data:{keywords:keywords, _token:_token},
+                  success:function(data){
+                    $('#search_ajax').fadeIn();
+                    $('#search_ajax').html(data);
+                  }
+                });
+              }
+              else {
+                $('#search_ajax').fadeOut();
+              }
+          });
+
+          $(document).on('click','.li_timkiem_ajax', function(){
+            $('#keywords').val($(this).text());
+            $('#search_ajax').fadeOut();
+          });
+        </script>
+
+
+        {{-- Màu nền trang web --}}
+        
 
         <script type="text/javascript">
             $('.owl-carousel').owlCarousel({
@@ -116,6 +188,7 @@
                 }
             })
         </script>
+      
 
         <script type="text/javascript">
           $('.select-chapter').on('change',function(){
@@ -135,5 +208,13 @@
             $('.select-chapter').find('option[value="'+url+'"]').attr("selected",true);
           }
         </script>
+
+
+        {{-- Comment Facebook --}}
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" 
+        src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v14.0" nonce="k73iEoIw"></script>
+
+
     </body>
 </html>
