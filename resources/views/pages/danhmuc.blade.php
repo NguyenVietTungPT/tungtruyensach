@@ -4,7 +4,14 @@
 @endsection --}}
 @section('content')
 
-{{-- Sách mới --}}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{{url('/')}}">Trang chủ</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{$tendanhmuc}}</li>
+    </ol>
+</nav>
+
 <h3>{{$tendanhmuc}}</h3>
 <div class="album py-5 bg-light">
   <div class="container">
@@ -25,7 +32,7 @@
             @foreach($truyen as $key => $value)
                 <div class="col-md-3">
                 <div class="card mb-3 box-shadow">
-                    <img class="card-img-top" src="{{asset('public/uploads/truyen/login_image84.PNG')}}">
+                    <img class="card-img-top" src="{{asset('public/uploads/truyen/'.$value->hinhanh)}}">
                     <div class="card-body">
                     <h5>{{$value->tentruyen}}</h5>
                     <p class="card-text">{{$value->tomtat}}</p>

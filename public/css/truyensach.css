@@ -1,0 +1,40 @@
+
+
+
+
+/* Sidebar */
+.col-md-7 {
+    padding: 0;
+}
+
+.card-header {
+    background: lightseagreen !important;
+}
+
+.sidebar img {
+    height: 170px;
+    width: 130px;
+    margin-bottom: 5px;
+}
+
+.sidebar p {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.sidebar a {
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    color: green;
+}
+
+.sidebar:hover{
+    color: green;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: lightyellow;
+}
+

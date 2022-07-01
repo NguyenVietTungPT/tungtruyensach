@@ -8,11 +8,11 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{{url('/')}}">Trang chủ</a></li>
-      <li class="breadcrumb-item active" aria-current="page">{{$tentheloai}}</li>
+      <li class="breadcrumb-item active" aria-current="page">Tìm kiếm</li>
     </ol>
 </nav>
 
-<h3>{{$tentheloai}}</h3>
+<h3> Bạn tìm kiếm từ khóa: {{$tukhoa}} </h3>
 <div class="album py-5 bg-light">
   <div class="container">
     <div class="row">
@@ -23,9 +23,9 @@
         @if ($count == 0)
             <div class="col-md-3">
                 <div class="card mb-3 box-shadow">
-                    <div class="card-body">
-                        <h4> Truyện đang cập nhật... </h4>
-                    </div>
+                <div class="card-body">
+                    <h4> Không tìm thấy từ khóa {{$tukhoa}}... </h4>
+                </div>
                 </div>
             </div>
         @else

@@ -96,6 +96,29 @@
                             </select>
                         </div>
 
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Truyện nổi bật </label>
+                            <select class="custom-select" name="truyennoibat">
+                                @if($truyen->truyen_noibat == 0)
+                                    <option selected value="0">Truyện mới</option>
+                                    <option value="1">Truyện đọc nhiều</option>
+                                    <option value="2">Truyện nổi bật</option>
+                                @elseif($truyen->truyen_noibat == 1)
+                                    <option value="0">Truyện mới</option>
+                                    <option selected value="1">Truyện đọc nhiều</option>
+                                    <option value="2">Truyện nổi bật</option>
+                                @else
+                                    <option value="0">Truyện mới</option>
+                                    <option value="1">Truyện đọc nhiều</option>
+                                    <option selected value="2">Truyện nổi bật</option>
+                                @endif
+                            </select>
+                        </div>
+
+                        {{-- <option value="0">Truyện mới</option>
+                                <option value="1">Truyện đọc nhiều</option>
+                                <option value="2">Truyện nổi bật</option> --}}
+
                         <button type="submit" class="btn btn-primary">Cập nhật</button>
                     </form>
 
