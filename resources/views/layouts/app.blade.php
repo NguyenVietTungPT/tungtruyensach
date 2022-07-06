@@ -88,7 +88,7 @@
     <script src="//cdn.ckeditor.com/4.16.0/full/ckeditor.js"> </script>
     <script type="text/javascript">
         CKEDITOR.replace('noidung_chapter');
-        // CKEDITOR.replace('ckeditor_truyen');
+        CKEDITOR.replace('ckeditor_truyen');
         CKEDITOR.replace('ckeditor_sach');
     </script>
 

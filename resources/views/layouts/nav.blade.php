@@ -49,7 +49,7 @@
     </nav>    
 
 
-      <div class="row">
+      {{-- <div class="row">
         <div class="col-md-12">
           <form autocomplete="off" class="form-inline my-2 my-lg-0" style="display: flex;" action="{{url('tim-kiem')}}" method="GET">
             @csrf
@@ -58,7 +58,7 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style ="height: 40px; width: 120px;">Tìm kiếm</button>
           </form>
         </div>
-      </div>
+      </div> --}}
 
 </div>
         

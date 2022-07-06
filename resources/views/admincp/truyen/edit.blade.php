@@ -47,7 +47,7 @@
 
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tóm tắt truyện </label>
-                            <textarea class="form-control" rows="5" style="resize: none" name="tomtat"> {{$truyen->tomtat}} </textarea>
+                            <textarea class="form-control" id="ckeditor_truyen" rows="5" style="resize: none" name="tomtat"> {{$truyen->tomtat}} </textarea>
                         </div>
 
                         <div class="form-group">

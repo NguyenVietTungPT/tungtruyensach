@@ -31,15 +31,17 @@ class IndexController extends Controller
     // }
 
     public function home(){
-        $slide_truyen = Truyen::orderBy('id','DESC')->where('kichhoat',0)->take(8)->get();
+        $slide_truyen = Truyen::orderBy('id','DESC')->where('kichhoat',0)->take(6)->get();
 
         $danhmuc = DanhmucTruyen::orderBy('id','DESC')->get();
 
-        $truyen = Truyen::orderBy('id','DESC')->where('kichhoat',0)->get();
+        $truyen = Truyen::orderBy('id','DESC')->where('kichhoat',0)->paginate(6);
+
+        $sach = Sach::orderBy('id','DESC')->where('kichhoat',0)->paginate(6);
 
         $theloai = Theloai::orderBy('id','DESC')->get();
 
-        return view('pages.home')->with(compact('danhmuc','truyen','theloai','slide_truyen'));
+        return view('pages.home')->with(compact('danhmuc','truyen','sach', 'theloai','slide_truyen'));
     }
 
     public function docsach(){
@@ -64,6 +66,17 @@ class IndexController extends Controller
         $theloai = Theloai::orderBy('id','DESC')->get();
 
         return view('pages.truyen')->with(compact('danhmuc','truyen','theloai','slide_truyen'));
+    }
+
+    public function xemsachnhanh(Request $request){
+        $sach_id = $request->sach_id;
+
+        $sach = Sach::find($sach_id);
+
+        $output['tieude_sach'] = $sach->tensach;
+        $output['noidung_sach'] = $sach->noidung;
+
+        echo json_encode($output);
     }
 
     public function danhmuc($slug){
@@ -164,7 +177,10 @@ class IndexController extends Controller
         $truyen = Truyen::with('danhmuctruyen','theloai')->where('tentruyen','LIKE','%'.$tukhoa.'%')
         ->orWhere('tacgia','LIKE','%'.$tukhoa.'%')->orWhere('tomtat','LIKE','%'.$tukhoa.'%')->get();
 
-        return view('pages.timkiem')->with(compact('slide_truyen','danhmuc','theloai','truyen','tukhoa'));
+        $sach = Sach::orderBy('id','DESC')->where('tensach','LIKE','%'.$tukhoa.'%')
+        ->orWhere('noidung','LIKE','%'.$tukhoa.'%')->orWhere('tomtat','LIKE','%'.$tukhoa.'%')->get();
+
+        return view('pages.timkiem')->with(compact('slide_truyen','danhmuc','theloai','truyen','tukhoa','sach'));
     }
 
 }

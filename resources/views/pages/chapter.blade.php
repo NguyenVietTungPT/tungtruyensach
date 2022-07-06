@@ -22,7 +22,7 @@
   </ol>
 </nav>
 
-<div class="row">
+<div class="row" style="font-size: 20px;">
   <div class="col-md-12">
     <h4> {{$chapter->truyen->tentruyen}} </h4>
     

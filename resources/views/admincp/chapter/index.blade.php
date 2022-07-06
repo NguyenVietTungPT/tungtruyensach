@@ -19,7 +19,7 @@
                     <table class="table table-striped">
                         <thead>
                           <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">STT</th>
                             <th scope="col">Tên Chapter</th>
                             <th scope="col">Slug Chapter</th>
                             <th scope="col">Tóm tắt</th>
@@ -31,7 +31,7 @@
                         <tbody>
                         @foreach($chapter as $key => $chap)
                             <tr>
-                                <th scope="row">{{$key}}</th>
+                                <th scope="row">{{$key+1}}</th>
                                 <td>{{$chap->tieude}}</td>
                                 <td>{{$chap->slug_chapter}}</td>
                                 <td>{{$chap->tomtat}}</td>

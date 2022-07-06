@@ -11,7 +11,7 @@
     </ol>
 </nav>
 
-<div class="row">
+<div class="row" style="font-size: 20px;">
     {{-- Trang chính --}}
     <div class="col-md-9">
         <div class="row">
@@ -43,8 +43,8 @@
                         Thể loại truyện: 
                         <a href="{{url('the-loai/'.$truyen->theloai->slug_theloai)}}"> {{$truyen->theloai->tentheloai}} </a>
                     </li>
-                    <li> Số chapter: 100 </li>
-                    <li> Lượt xem: 100 </li>
+                    {{-- <li> Số chapter: 100 </li> --}}
+                    <li> Lượt xem: {{$truyen->views}} </li>
                     <li> <a href="#"> Xem mục lục </a> </li>
 
                     @if($chapter_dau)
@@ -64,7 +64,7 @@
         </div>
         <hr>
         <h4> Mục Lục </h4>
-        <ul class="mucluctruyen">
+        <ol class="mucluctruyen">
             @php
                 $mucluc = count($chapter);
             @endphp
@@ -73,9 +73,9 @@
                     <li> <a href="{{url('xem-chapter/'.$chap->slug_chapter)}}"> {{$chap->tieude}} </a> </li>
                 @endforeach
             @else
-                <li> Mục lục đang cập nhật... </li>
+                <h4> Mục lục đang cập nhật... </h4>
             @endif
-        </ul>
+        </ol>
         <div class="fb-like" data-href="{{\URL::current()}}" data-width="" data-layout="button_count" data-action="like" data-size="large" data-share="true"></div>
         <div class="fb-comments" data-href="{{\URL::current()}}" data-width="100%" data-numposts="20"> </div>
 
@@ -83,15 +83,18 @@
         <div class="row">
             @foreach($cungdanhmuc as $key => $value)
                 <div class="col-md-3">
-                    <div class="card mb-3 box-shadow">
-                    <img class="card-img-top" src="{{asset('public/uploads/truyen/'.$value->hinhanh)}}">
-                    <div class="card-body">
-                        <h5>{{$value->tentruyen}}</h5>
+                    <div class="card mb-3 box-shadow same-category-book">
+                    <a href="{{url('xem-truyen/'.$value->slug_truyen)}}">
+                        <img class="card-img-top" src="{{asset('public/uploads/truyen/'.$value->hinhanh)}}">
+                        <div class="card-body">
+                        <h4> <b> {{$value->tentruyen}} </b></h4>
+                    </a>
+                    
                         <p class="card-text">{{$value->tomtat}}</p>
                         <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
+                        <div class="btn-group btn-read-book">
                             <a href="{{url('xem-truyen/'.$value->slug_truyen)}}" class="btn btn-sm btn-outline-secondary">Xem truyện</a>
-                            <a class="btn btn-sm btn-outline-secondary"> <i class="fas fa-eye"></i> 4446 </a>
+                            <a class="btn btn-sm btn-outline-secondary"> <i class="fas fa-eye"></i> {{$value->views}} </a>
                         </div>
                         </div>
                     </div>
@@ -117,7 +120,7 @@
                     <a href="{{url('xem-truyen/'.$noibat->slug_truyen)}}">
                         <p> {{$noibat->tentruyen}} </p>
                     </a>
-                    <p> <i class="fas fa-eye"></i> </p>
+                    <p> <i class="fas fa-eye"></i> {{$noibat->views}} </p>
                 </div>
             </div>
         @endforeach
@@ -135,7 +138,7 @@
                     <a href="{{url('xem-truyen/'.$xemnhieu->slug_truyen)}}">
                         <p> {{$xemnhieu->tentruyen}} </p>
                     </a>
-                    <p> <i class="fas fa-eye"></i> </p>
+                    <p> <i class="fas fa-eye"></i> {{$xemnhieu->views}} </p>
                 </div>
             </div>
         @endforeach

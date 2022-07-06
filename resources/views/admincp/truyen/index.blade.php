@@ -20,7 +20,7 @@
                     <table class="table table-striped table-responsive">
                         <thead>
                           <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">STT</th>
                             <th scope="col">Tên Truyện</th>
                             <th scope="col">Tác giả</th>
                             <th scope="col">Hình ảnh</th>
@@ -36,7 +36,7 @@
                         <tbody>
                         @foreach($list_truyen as $key => $truyen)
                             <tr>
-                                <th scope="row">{{$key}}</th>
+                                <th scope="row">{{$key+1}}</th>
                                 <td>{{$truyen->tentruyen}}</td>
                                 <td>{{$truyen->tacgia}}</td>
                                 <td> <img src="{{asset('public/uploads/truyen/'.$truyen->hinhanh)}}" height="250" width="180"> </td>
@@ -92,7 +92,7 @@
                                     <form action="{{route('truyen.destroy', [$truyen->id])}}" method="POST">
                                         @method('DELETE')
                                         @csrf
-                                        <button onclick = "return confirm('Bạn muốn xóa Truyện này?');" class="btn btn-danger"> Xóa </button>
+                                        <button onclick = "return confirm('Bạn muốn xóa Truyện này?');" class="btn btn-danger"> Xóa Truyện</button>
                                     </form>
                                 </td>
                             </tr>

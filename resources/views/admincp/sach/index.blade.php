@@ -3,7 +3,7 @@
 @section('content')
 
 @include('layouts.nav')
-<div class="container-fluid">
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
@@ -20,7 +20,7 @@
                     <table class="table table-striped table-responsive">
                         <thead>
                           <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">STT</th>
                             <th scope="col">Tên Sách</th>
                             <th scope="col">Hình ảnh</th>
                             <th scope="col">Slug Sách</th>
@@ -32,7 +32,7 @@
                         <tbody>
                         @foreach($list_sach as $key => $sach)
                             <tr>
-                                <th scope="row">{{$key}}</th>
+                                <th scope="row">{{$key+1}}</th>
                                 <td>{{$sach->tensach}}</td>
                                 <td> <img src="{{asset('public/uploads/sach/'.$sach->hinhanh)}}" height="250" width="180"> </td>
                                 <td>{{$sach->slug_sach}}</td>

@@ -29,9 +29,13 @@
         </style>
     </head>
     <body>
-        <div class="container">
+      <div id="fb-root"></div>
+      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v14.0" nonce="ms15Drie"></script>
+
+        <div class="container-fluid" style="background: #C7FFBA !important">
             {{-- Menu --}}
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light"  style="background: #C7FFBA !important">
                 <a class="navbar-brand" href="#">Sachtruyen.com</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
@@ -40,7 +44,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                      <a class="nav-link" href="{{url('/')}}">Trang chủ <span class="sr-only">(current)</span></a>
+                      <a class="nav-link" href="{{url('/')}}">
+                        <i class="fas fa-gift"></i> Trang chủ <span class="sr-only">(current)</span>
+                      </a>
                     </li>
 
                     <li class="nav-item">
@@ -50,16 +56,9 @@
                       </a>
                     </li>
 
-                    <li class="nav-item">
-                      <a class="nav-link" href="{{url('doc-sach')}}">
-                        <i class="fas fa-book"> </i> Đọc Sách
-                        <span class="sr-only"> </span>
-                      </a>
-                    </li>
-
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i classs="fa fa-list-ul" aria-hidden="true"></i> Danh mục truyện
+                        <i class="fa fa-tags" aria-hidden="true"> </i> Danh mục truyện
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         @foreach($danhmuc as $key =>$danh)
@@ -78,10 +77,21 @@
                         @endforeach
                       </div>
                     </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{url('doc-sach')}}">
+                        <i class="fas fa-book"> </i> Đọc Sách
+                        <span class="sr-only"> </span>
+                      </a>
+                    </li>
                   </ul>
                 </div>
             </nav>
+          </div>
+        </div>
 
+
+          <div class="container">
             <div class="row">
               <div class="col-md-12">
                 <form autocomplete="off" class="form-inline my-2 my-lg-0" style="display: flex;" action="{{url('tim-kiem')}}" method="GET">
@@ -106,31 +116,66 @@
               </div>
             </div> --}}
 
-            <select class="custom-select mr-sm-2" id="switch_color">
+            {{-- <select class="custom-select mr-sm-2" id="switch_color">
               <option value="xam"> Xám </option>
               <option value="den"> Đen </option>
-            </select>
+            </select> --}}
                 
-
             {{-- Slide --}}
             @yield('slide')
             {{-- Content --}}
             @yield('content')
-
-          {{-- Footer --}}
-          <footer class="text-muted">
-            <div class="container">
-              <p class="float-right">
-                <a href="#">Back to top</a>
-              </p>
-              <p>Album example is © Bootstrap, but please download and customize it for yourself!</p>
-              <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
-            </div>
-          </footer>
-
-
-
         </div>
+
+        {{-- Footer --}}
+        <footer class="text-muted footer">
+          <div class="container-fluid">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="footer-info">
+                    <h3>Tùng - Sách Truyện</h3>
+                    <p class="pb-3">
+                      <em>Website đọc truyện online chất lượng hàng đầu việt nam, với nhiều truyện tiên hiệp, truyện kiếm hiệp, truyện ngôn tình, truyện teen, truyện đô thị được tác giả và dịch giả chọn lọc và đăng tải.</em>
+                    </p>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <p> 235 Hoàng Quốc Việt 
+                    <br> Cổ Nhuế, Bắc Từ Liêm, Hà Nội <br><br> 
+                    <strong>Phone:</strong> +1 5589 55488 55<br> 
+                    <strong>Email:</strong> info@example.com<br>
+                  </p>
+                  <div class="social-links mt-3"> 
+                    <a href="#" class="twitter">   <i class="bx bxl-twitter">   </i> </a> 
+                    <a href="#" class="facebook">  <i class="fa-brands fa-facebook-square"></i> </a> 
+                    <a href="#" class="instagram"> <i class="bx bxl-instagram"> </i> </a> 
+                    <a href="#" class="google-plus">  <i class="bx bxl-skype">  </i> </a> 
+                    <a href="#" class="linkedin">  <i class="bx bxl-linkedin">  </i> </a>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <p class="float-right">
+                    <a href="#">Back to top</a>
+                  </p>
+                  <p>Album example is © Bootstrap, but please download and customize it for yourself!</p>
+                  <p>New to Bootstrap? 
+                    <a href="../../">Visit the homepage </a> or read our <a href="../../getting-started/">getting started guide</a>.
+                  </p>
+                </div>
+              </div>
+              
+
+
+
+
+
+              
+            </div>
+          </div>
+        </footer>
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer> </script>
@@ -138,6 +183,26 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"> </script>
         <script src="//cdn.ckeditor.com/4.16.0/full/ckeditor.js"> </script>
         
+        {{-- Xem sách nhanh --}}
+        <script type="text/javascript">
+          $(document).on('click','.xemsachnhanh',function(){
+            var sach_id = $(this).attr('id');
+            var _token = $('input[name="_token"]').val();
+            
+            $.ajax({
+              url: '{{url('/xemsachnhanh')}}',
+              method:"POST",
+              dataType:"JSON",
+              data:{sach_id:sach_id,_token:_token},
+              success:function(data){
+                $('#tieude_sach').html(data.tieude_sach);
+                $('#noidung_sach').html(data.noidung_sach);
+              }
+            });
+          });
+        </script>
+
+
         {{-- Tìm kiếm nâng cao --}}
         <script type="text/javascript">
           $('#keywords').keyup(function(){
@@ -215,6 +280,7 @@
         <script async defer crossorigin="anonymous" 
         src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v14.0" nonce="k73iEoIw"></script>
 
+       
 
     </body>
 </html>

@@ -30,6 +30,8 @@ Route::get('/the-loai/{slug}', [IndexController::class, 'theloai']);
 
 Route::get('/doc-truyen', [IndexController::class, 'doctruyen']);
 Route::get('/doc-sach', [IndexController::class, 'docsach']);
+Route::post('/xemsachnhanh', [IndexController::class, 'xemsachnhanh']);
+
 
 Route::get('/tim-kiem', [IndexController::class, 'timkiem']);
 // Route::post('/timkiem-ajax', [IndexController::class, 'timkiem_ajax']);

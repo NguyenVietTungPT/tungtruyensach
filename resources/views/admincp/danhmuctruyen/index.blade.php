@@ -19,7 +19,7 @@
                     <table class="table table-striped">
                         <thead>
                           <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">STT</th>
                             <th scope="col">Tên danh mục</th>
                             <th scope="col">Slug danh mục</th>
                             <th scope="col">Mô tả</th>
@@ -30,7 +30,7 @@
                         <tbody>
                         @foreach($danhmuctruyen as $key => $danhmuc)
                             <tr>
-                                <th scope="row">{{$key}}</th>
+                                <th scope="row">{{$key+1}}</th>
                                 <td>{{$danhmuc->tendanhmuc}}</td>
                                 <td>{{$danhmuc->slug_danhmuc}}</td>
                                 <td>{{$danhmuc->mota}}</td>
