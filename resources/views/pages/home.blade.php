@@ -30,7 +30,7 @@
       </div>
       @endforeach
     </div>
-    <a class="btn btn-success" href="xem-truyen">Xem tất cả</a>
+    <a class="btn btn-success btn-read-all" href="{{url('doc-truyen')}}">Xem tất cả</a>
   </div>
 </div>
 
@@ -91,7 +91,7 @@
                 </form>
 
                 
-                <a class="btn btn-sm btn-outline-secondary"> <i class="fas fa-eye"></i> {{$value->views}} </a>
+                <a class="btn btn-sm btn-outline-secondary"> <i class="fas fa-eye"></i> {{$value2->views}} </a>
               </div>
 
               <small class="text-muted"> </small>
@@ -101,7 +101,7 @@
       </div>
       @endforeach
     </div>
-    <a class="btn btn-success" href="{{url('doc-sach')}}">Xem tất cả</a>
+    <a class="btn btn-success btn-read-all" href="{{url('doc-sach')}}">Xem tất cả</a>
   </div>
 </div>
 

@@ -5,9 +5,9 @@
 @include('layouts.nav')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Liệt Kê Chapter</div>
+                <div class="card-header header-title">Liệt Kê Chương Truyện</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -17,20 +17,20 @@
                     @endif
 
                     <table class="table table-striped">
-                        <thead>
-                          <tr>
+                        <thead class="thead-title">
+                        <tr>
                             <th scope="col">STT</th>
-                            <th scope="col">Tên Chapter</th>
-                            <th scope="col">Slug Chapter</th>
-                            <th scope="col">Tóm tắt</th>
-                            <th scope="col">Thuộc truyện</th>
-                            <th scope="col">Kích hoạt</th>
-                            <th scope="col">Quản lý</th>
-                          </tr>
+                            <th class="col-md-2">Tên Chapter</th>
+                            <th class="col-md-2">Slug Chapter</th>
+                            <th class="col-md-4">Tóm tắt</th>
+                            <th class="col-md-2">Thuộc truyện</th>
+                            <th class="col-md-1">Kích hoạt</th>
+                            <th class="col-md-2">Quản lý</th>
+                        </tr>
                         </thead>
                         <tbody>
                         @foreach($chapter as $key => $chap)
-                            <tr>
+                            <tr class="tr-content">
                                 <th scope="row">{{$key+1}}</th>
                                 <td>{{$chap->tieude}}</td>
                                 <td>{{$chap->slug_chapter}}</td>
@@ -58,8 +58,8 @@
 
                     
                 </div>
-            </div>
-        </div>
+            </div> 
+        </div>   
     </div>
 </div>
 @endsection

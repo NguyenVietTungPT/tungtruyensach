@@ -5,9 +5,9 @@
 @include('layouts.nav')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Thêm Truyện</div>
+                <div class="card-header header-title">Thêm Truyện</div>
 
                 {{-- Validation --}}
                 @if ($errors->any())
@@ -89,7 +89,7 @@
                             </select>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Thêm</button>
+                        <button type="submit" class="btn btn-primary btn-add-edit">Thêm Truyện</button>
                     </form>
 
                 </div>

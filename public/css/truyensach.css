@@ -1,6 +1,47 @@
+/* Admin */
+
+
+.header-title {
+    font-size: 25px;
+}
+
+.thead-title {
+    font-size: 20px;
+    text-align: center
+}
+
+.tr-content {
+    font-size: 17px;
+    
+}
+
+.btn-add-edit {
+    display: block;
+    margin: 0 auto;
+    background: lightseagreen !important;
+    border: lightseagreen !important;
+    height: 50px;
+    width: 100px;
+}
+
+/* Admin */
 
 
 
+
+.search-box {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 10px;
+    height: 50px;
+}
+
+.btn-read-all {
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+    height: 40px;
+}
 
 /* Sidebar */
 .col-md-7 {
@@ -49,6 +90,16 @@
     height: 430px;
 }
 
+.main-book p {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 25px;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
 .btn-read-book {
     display: block;
     margin: 0 auto;
@@ -67,6 +118,16 @@
 .same-category-book img {
     width: 100%;
     height: 300px;
+}
+
+.same-category-book p {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 25px;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
 }
 
 .pdf-book {
@@ -115,5 +176,18 @@
 .footer {
     background:#00A143 !important;
     font-size: 20px;
-    color: white;
+    color: white !important;
+    padding-top: 15px;
+    height: 280px;
+}
+
+.icon-footer {
+    margin: 0px 10px;
+    font-size: 30px;
+}
+
+.uptotop {
+    font-size: 50px;
+    position: relative;
+    bottom: 150px;
 }

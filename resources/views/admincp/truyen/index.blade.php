@@ -3,11 +3,11 @@
 @section('content')
 
 @include('layouts.nav')
-<div class="container-fluid">
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Liệt Kê Truyện</div>
+                <div class="card-header header-title">Liệt Kê Truyện</div>
 
                 <div class="card-body">
                     <div id="thongbao"> </div>
@@ -18,29 +18,29 @@
                     @endif
 
                     <table class="table table-striped table-responsive">
-                        <thead>
+                        <thead class="thead-title">
                           <tr>
                             <th scope="col">STT</th>
-                            <th scope="col">Tên Truyện</th>
-                            <th scope="col">Tác giả</th>
+                            <th class="col-md-2">Tên Truyện</th>
+                            <th class="col-md-1">Tác giả</th>
                             <th scope="col">Hình ảnh</th>
-                            <th scope="col">Slug Truyện</th>
-                            <th scope="col">Tóm tắt</th>
-                            <th scope="col">Danh mục</th>
-                            <th scope="col">Thể loại</th>
-                            <th scope="col">Kích hoạt</th>
-                            <th scope="col">Nổi bật</th>
-                            <th scope="col">Quản lý</th>
+                            {{-- <th class="col-md-2">Slug Truyện</th> --}}
+                            <th class="col-md-2">Tóm tắt</th>
+                            <th class="col-md-2">Danh mục</th>
+                            <th class="col-md-1">Thể loại</th>
+                            <th class="col-md-2">Kích hoạt</th>
+                            <th class="col-md-1">Nổi bật</th>
+                            <th class="col-md-1">Quản lý</th>
                           </tr>
                         </thead>
                         <tbody>
                         @foreach($list_truyen as $key => $truyen)
-                            <tr>
+                            <tr class="tr-content">
                                 <th scope="row">{{$key+1}}</th>
                                 <td>{{$truyen->tentruyen}}</td>
                                 <td>{{$truyen->tacgia}}</td>
                                 <td> <img src="{{asset('public/uploads/truyen/'.$truyen->hinhanh)}}" height="250" width="180"> </td>
-                                <td>{{$truyen->slug_truyen}}</td>
+                                {{-- <td>{{$truyen->slug_truyen}}</td> --}}
                                 <td>{{$truyen->tomtat}}</td>
                                 <td>{{$truyen->danhmuctruyen->tendanhmuc}}</td>
                                 <td>{{$truyen->theloai->tentheloai}}</td>
@@ -54,7 +54,7 @@
                                 </td>
 
                                 {{-- Truyện nổi bật --}}
-                                <td width="10%">
+                                {{-- <td width="10%">
                                     @if($truyen->truyen_noibat == 0)
                                     <form>
                                         @csrf
@@ -84,6 +84,16 @@
                                             <option selected value="2">Truyện nổi bật</option>
                                         </select>
                                     </form>  
+                                    @endif
+                                </td> --}}
+
+                                <td width="10%">
+                                    @if($truyen->truyen_noibat == 0)
+                                        <span class="text text-success"> Truyện mới </span>
+                                    @elseif($truyen->truyen_noibat == 1)
+                                        <span class="text text-warning"> Truyện đọc nhiều </span>
+                                    @else
+                                        <span class="text text-danger"> Truyện nổi bật </span>
                                     @endif
                                 </td>
 

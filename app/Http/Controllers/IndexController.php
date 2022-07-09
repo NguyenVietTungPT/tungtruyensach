@@ -35,9 +35,9 @@ class IndexController extends Controller
 
         $danhmuc = DanhmucTruyen::orderBy('id','DESC')->get();
 
-        $truyen = Truyen::orderBy('id','DESC')->where('kichhoat',0)->paginate(6);
+        $truyen = Truyen::orderBy('id','DESC')->where('kichhoat',0)->paginate(8);
 
-        $sach = Sach::orderBy('id','DESC')->where('kichhoat',0)->paginate(6);
+        $sach = Sach::orderBy('id','DESC')->where('kichhoat',0)->paginate(8);
 
         $theloai = Theloai::orderBy('id','DESC')->get();
 
@@ -45,7 +45,7 @@ class IndexController extends Controller
     }
 
     public function docsach(){
-        $slide_truyen = Truyen::orderBy('id','DESC')->where('kichhoat',0)->take(8)->get();
+        $slide_truyen = Truyen::orderBy('id','DESC')->where('kichhoat',0)->get();
 
         $danhmuc = DanhmucTruyen::orderBy('id','DESC')->get();
 
@@ -57,7 +57,7 @@ class IndexController extends Controller
     }
 
     public function doctruyen(){
-        $slide_truyen = Truyen::orderBy('id','DESC')->where('kichhoat',0)->take(8)->get();
+        $slide_truyen = Truyen::orderBy('id','DESC')->where('kichhoat',0)->get();
 
         $danhmuc = DanhmucTruyen::orderBy('id','DESC')->get();
 
@@ -65,7 +65,7 @@ class IndexController extends Controller
 
         $theloai = Theloai::orderBy('id','DESC')->get();
 
-        return view('pages.truyen')->with(compact('danhmuc','truyen','theloai','slide_truyen'));
+        return view('pages.listtruyen')->with(compact('danhmuc','truyen','theloai','slide_truyen'));
     }
 
     public function xemsachnhanh(Request $request){

@@ -1,10 +1,7 @@
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">                      
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="{{route('home')}}">Admin <span class="sr-only">(current)</span></a>
-            </li>
+          <ul class="navbar-nav mr-auto" style="font-size: 20px;">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Quản lý Danh Mục
@@ -27,21 +24,21 @@
 
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Quản lý Sách 
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{route('sach.create')}}">Thêm sách </a>
-                <a class="dropdown-item" href="{{route('sach.index')}}">Liệt kê sách </a>
-              </div>
-          </li>
-
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Quản lý Chapter
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{{route('chapter.create')}}">Thêm Chapter</a>
                 <a class="dropdown-item" href="{{route('chapter.index')}}">Liệt kê Chapter</a>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Quản lý Sách 
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{route('sach.create')}}">Thêm sách </a>
+                <a class="dropdown-item" href="{{route('sach.index')}}">Liệt kê sách </a>
               </div>
             </li>
           </ul>

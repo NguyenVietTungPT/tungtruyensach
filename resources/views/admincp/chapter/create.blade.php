@@ -5,9 +5,9 @@
 @include('layouts.nav')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Thêm Chapter Truyện</div>
+                <div class="card-header header-title">Thêm Chương Truyện</div>
 
                 {{-- Validation --}}
                 @if ($errors->any())
@@ -41,7 +41,7 @@
 
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tóm tắt Chapter </label>
-                            <input type="text" class="form-control" value="{{old('tomtat')}}" name="tomtat" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+                            <textarea class="form-control" rows="5" style="resize: none" value="{{old('tomtat')}}" name="tomtat"> </textarea>
                         </div>
 
                         <div class="form-group">
@@ -66,7 +66,7 @@
                             </select>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Thêm</button>
+                        <button type="submit" class="btn btn-primary btn-add-edit">Thêm Chương</button>
                     </form>
 
                 </div>

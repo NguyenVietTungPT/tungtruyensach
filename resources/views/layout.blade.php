@@ -30,12 +30,14 @@
     </head>
     <body>
       <div id="fb-root"></div>
+      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v14.0" nonce="yEoXLn4L"></script>
+      <div id="fb-root"></div>
       <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v14.0" nonce="ms15Drie"></script>
 
-        <div class="container-fluid" style="background: #C7FFBA !important">
+        <div class="container-fluid" style="background: #00A143 !important">
             {{-- Menu --}}
           <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light"  style="background: #C7FFBA !important">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light"  style="background: #00A143 !important">
                 <a class="navbar-brand" href="#">Sachtruyen.com</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
@@ -92,13 +94,13 @@
 
 
           <div class="container">
-            <div class="row">
+            <div class="row search-box">
               <div class="col-md-12">
                 <form autocomplete="off" class="form-inline my-2 my-lg-0" style="display: flex;" action="{{url('tim-kiem')}}" method="GET">
                   @csrf
-                  <input class="form-control mr-sm-2" type="search" id="keywords" name="tukhoa" style ="height: 40px; margin-right: 10px" placeholder="Tìm kiếm tác giả, truyện,..." aria-label="Search">
+                  <input class="form-control mr-sm-2" type="search" id="keywords" name="tukhoa" style ="margin-right: 10px" placeholder="Tìm kiếm tác giả, truyện,..." aria-label="Search">
                   <div id="search_ajax"> </div>
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style ="height: 40px; width: 120px;">Tìm kiếm</button>
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style ="width: 120px;">Tìm kiếm</button>
                 </form>
               </div>
             </div>  
@@ -129,51 +131,52 @@
 
         {{-- Footer --}}
         <footer class="text-muted footer">
-          <div class="container-fluid">
+          <div class="container-fluid" style="height: 260px;">
             <div class="container">
               <div class="row">
                 <div class="col-md-4">
                   <div class="footer-info">
                     <h3>Tùng - Sách Truyện</h3>
                     <p class="pb-3">
-                      <em>Website đọc truyện online chất lượng hàng đầu việt nam, với nhiều truyện tiên hiệp, truyện kiếm hiệp, truyện ngôn tình, truyện teen, truyện đô thị được tác giả và dịch giả chọn lọc và đăng tải.</em>
+                      <em>
+                        Website đọc sách, truyện online chất lượng hàng đầu Việt Nam, với nhiều thể loại truyện 
+                        và sách được tác giả và dịch giả chọn lọc và đăng tải. Mang đến trải nghiệm tốt nhất cho 
+                        người đọc.
+                      </em>
                     </p>
                   </div>
                 </div>
 
                 <div class="col-md-4">
                   <p> 235 Hoàng Quốc Việt 
-                    <br> Cổ Nhuế, Bắc Từ Liêm, Hà Nội <br><br> 
-                    <strong>Phone:</strong> +1 5589 55488 55<br> 
-                    <strong>Email:</strong> info@example.com<br>
+                    <br> Cổ Nhuế, Bắc Từ Liêm, Hà Nội, Việt Nam <br><br> 
+                    <strong>Phone:</strong> <a href="tel:123-456-7890">123-456-7890</a> <br> 
+                    <strong>Email:</strong> <a href = "mailto: tungnv2@fabbi.com.vn">tungnv2@fabbi.com.vn</a> <br>
                   </p>
                   <div class="social-links mt-3"> 
-                    <a href="#" class="twitter">   <i class="bx bxl-twitter">   </i> </a> 
-                    <a href="#" class="facebook">  <i class="fa-brands fa-facebook-square"></i> </a> 
-                    <a href="#" class="instagram"> <i class="bx bxl-instagram"> </i> </a> 
-                    <a href="#" class="google-plus">  <i class="bx bxl-skype">  </i> </a> 
-                    <a href="#" class="linkedin">  <i class="bx bxl-linkedin">  </i> </a>
+                    <center>
+                      <a href="#" class="twitter icon-footer">   <i class="fab fa-twitter"></i> </a> 
+                      <a href="#" class="facebook icon-footer">  <i class="fab fa-facebook"></i> </a> 
+                      <a href="#" class="instagram icon-footer"> <i class="fab fa-instagram"></i> </a> 
+                    </center>
+                    
                   </div>
                 </div>
 
                 <div class="col-md-4">
-                  <p class="float-right">
-                    <a href="#">Back to top</a>
-                  </p>
-                  <p>Album example is © Bootstrap, but please download and customize it for yourself!</p>
-                  <p>New to Bootstrap? 
-                    <a href="../../">Visit the homepage </a> or read our <a href="../../getting-started/">getting started guide</a>.
-                  </p>
+                    <a href="#"> Chính sách bảo mật  </a> <br>
+                    <a href="#"> Điều khoản sử dụng  </a>  <br>
+                    <a href="#"> Quy định về nội dung </a> <br>
+                    <a href="#"> Thỏa thuận quyền riêng tư  </a> 
                 </div>
               </div>
-              
-
-
-
-
-
-              
+        
             </div>
+            
+            <p class="float-right uptotop">
+              <a href="#"> <i class="fas fa-arrow-alt-circle-up"></i> </a>
+            </p>
+
           </div>
         </footer>
 

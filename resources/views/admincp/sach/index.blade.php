@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Liệt Kê Sách</div>
+                <div class="card-header header-title">Liệt Kê Sách</div>
 
                 <div class="card-body">
                     <div id="thongbao"> </div>
@@ -18,20 +18,20 @@
                     @endif
 
                     <table class="table table-striped table-responsive">
-                        <thead>
+                        <thead class="thead-title">
                           <tr>
                             <th scope="col">STT</th>
-                            <th scope="col">Tên Sách</th>
+                            <th class="col-md-2">Tên Sách</th>
                             <th scope="col">Hình ảnh</th>
-                            <th scope="col">Slug Sách</th>
-                            <th scope="col">Tóm tắt</th>
-                            <th scope="col">Kích hoạt</th>
-                            <th scope="col">Quản lý</th>
+                            <th class="col-md-2">Slug Sách</th>
+                            <th class="col-md-3">Tóm tắt</th>
+                            <th class="col-md-1">Kích hoạt</th>
+                            <th class="col-md-1">Quản lý</th>
                           </tr>
                         </thead>
                         <tbody>
                         @foreach($list_sach as $key => $sach)
-                            <tr>
+                            <tr class="tr-content">
                                 <th scope="row">{{$key+1}}</th>
                                 <td>{{$sach->tensach}}</td>
                                 <td> <img src="{{asset('public/uploads/sach/'.$sach->hinhanh)}}" height="250" width="180"> </td>
