@@ -116,9 +116,9 @@ class IndexController extends Controller
         
         $danhmuc = DanhmucTruyen::orderBy('id','DESC')->get();
 
-        $truyenxemnhieu = Truyen::where('truyen_noibat',1)->take(20)->get();
+        $truyenxemnhieu = Truyen::where('truyen_noibat',1)->take(4)->get();
 
-        $truyennoibat = Truyen::where('truyen_noibat',2)->take(20)->get();
+        $truyennoibat = Truyen::where('truyen_noibat',2)->take(4)->get();
 
         $truyen  = Truyen::with('danhmuctruyen','theloai')->where('slug_truyen',$slug)->where('kichhoat',0)->first();
 

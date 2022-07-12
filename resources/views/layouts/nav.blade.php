@@ -4,11 +4,21 @@
           <ul class="navbar-nav mr-auto" style="font-size: 20px;">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Quản lý Danh Mục
+                Quản lý Danh Mục Truyện
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{{route('danhmuc.create')}}">Thêm danh mục</a>
                 <a class="dropdown-item" href="{{route('danhmuc.index')}}">Liệt kê danh mục</a>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Quản lý Thể Loại Truyện
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{route('theloai.create')}}">Thêm thể loại</a>
+                <a class="dropdown-item" href="{{route('theloai.index')}}">Liệt kê thể loại</a>
               </div>
             </li>
 

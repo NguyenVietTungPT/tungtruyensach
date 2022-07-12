@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DanhmucController;
+use App\Http\Controllers\TheloaiController;
 use App\Http\Controllers\TruyenController;
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\SachController;
@@ -42,6 +43,7 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::resource('/danhmuc', DanhmucController::class);
+Route::resource('/theloai', TheloaiController::class);
 Route::resource('/truyen', TruyenController::class);
 Route::resource('/sach', SachController::class);
 Route::resource('/chapter', ChapterController::class);

@@ -11,7 +11,7 @@
 
 
 {{-- TEST --}}
-<h3>SÁCH HAY NÊN ĐỌC</h3>
+<h3>TRUYỆN HAY NÊN ĐỌC</h3>
 <div class="owl-carousel owl-theme slide-items" style="margin-block: 30px;">
     @foreach($slide_truyen as $key => $slide)
     <div class="item slide-book">

@@ -73,13 +73,13 @@
                         </div> --}}
 
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Hình ảnh sách </label>
+                            <label for="exampleInputEmail1">Hình ảnh sách </label> <br>
                             <input type="file" class="form-control-file" name="hinhanh">
                         </div>
 
                         <div class="form-group">
                             <label for="exampleInputEmail1">Kích hoạt sách </label>
-                            <select class="custom-select" name="kichhoat">
+                            <select class="custom-select dropdown-Tung" name="kichhoat">
                                 <option value="0">Kích hoạt</option>
                                 <option value="1">Không kích hoạt</option>
                             </select>

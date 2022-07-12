@@ -51,7 +51,7 @@
 
                         <div class="form-group">
                             <label for="exampleInputEmail1">Danh mục truyện </label>
-                            <select class="custom-select" name="danhmuc">
+                            <select class="custom-select dropdown-Tung" name="danhmuc">
                                 @foreach($danhmuc as $key => $muc)
                                     <option value="{{$muc->id}}"> {{$muc->tendanhmuc}} </option>
                                 @endforeach
@@ -60,7 +60,7 @@
 
                         <div class="form-group">
                             <label for="exampleInputEmail1">Thể loại truyện </label>
-                            <select class="custom-select" name="theloai">
+                            <select class="custom-select dropdown-Tung" name="theloai">
                                 @foreach($theloai as $key => $the)
                                     <option value="{{$the->id}}"> {{$the->tentheloai}} </option>
                                 @endforeach
@@ -68,13 +68,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Hình ảnh truyện </label>
+                            <label for="exampleInputEmail1">Hình ảnh truyện </label> <br>
                             <input type="file" class="form-control-file" name="hinhanh">
                         </div>
 
                         <div class="form-group">
                             <label for="exampleInputEmail1">Kích hoạt truyện </label>
-                            <select class="custom-select" name="kichhoat">
+                            <select class="custom-select dropdown-Tung" name="kichhoat">
                                 <option value="0">Kích hoạt</option>
                                 <option value="1">Không kích hoạt</option>
                             </select>
@@ -82,7 +82,7 @@
 
                         <div class="form-group">
                             <label for="exampleInputEmail1"> Truyện nổi bật </label>
-                            <select class="custom-select" name="truyennoibat">
+                            <select class="custom-select dropdown-Tung" name="truyennoibat">
                                 <option value="0">Truyện mới</option>
                                 <option value="1">Truyện đọc nhiều</option>
                                 <option value="2">Truyện nổi bật</option>

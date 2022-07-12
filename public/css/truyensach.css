@@ -21,7 +21,16 @@
     background: lightseagreen !important;
     border: lightseagreen !important;
     height: 50px;
-    width: 100px;
+}
+
+.dropdown-Tung {
+    width: 100%;
+    height: 35px;
+    color: #212529;
+    background-color: #f8fafc;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    margin-bottom: 10px;
 }
 
 /* Admin */

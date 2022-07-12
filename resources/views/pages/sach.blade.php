@@ -68,7 +68,7 @@
       </div>
       @endforeach
     </div>
-    <a class="btn btn-success btn-read-all" href="">Xem tất cả</a>
+    
   </div>
 </div>
 

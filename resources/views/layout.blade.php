@@ -38,7 +38,9 @@
             {{-- Menu --}}
           <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light"  style="background: #00A143 !important">
-                <a class="navbar-brand" href="#">Sachtruyen.com</a>
+                <a class="navbar-brand" href="#">
+                  <img src="{{asset('public/logo.jpg/')}}" height="50"; width="100px"> 
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -93,7 +95,7 @@
         </div>
 
 
-          <div class="container">
+          <div class="container" style="min-height: 520px;">
             <div class="row search-box">
               <div class="col-md-12">
                 <form autocomplete="off" class="form-inline my-2 my-lg-0" style="display: flex;" action="{{url('tim-kiem')}}" method="GET">
@@ -128,6 +130,9 @@
             {{-- Content --}}
             @yield('content')
         </div>
+
+        
+        
 
         {{-- Footer --}}
         <footer class="text-muted footer">

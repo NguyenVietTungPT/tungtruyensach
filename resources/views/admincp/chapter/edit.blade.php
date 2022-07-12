@@ -52,7 +52,7 @@
 
                         <div class="form-group">
                             <label for="exampleInputEmail1">Thuộc truyện </label>
-                            <select class="custom-select" name="truyen_id">
+                            <select class="custom-select dropdown-Tung" name="truyen_id">
                                 @foreach($truyen as $key => $value)
                                     <option {{ $chapter->truyen_id == $value->id ? 'selected' : ''}} value="{{$value->id}}"> {{$value->tentruyen}} </option>
                                 @endforeach
@@ -61,7 +61,7 @@
 
                         <div class="form-group">
                             <label for="exampleInputEmail1">Kích hoạt Chapter </label>
-                            <select class="custom-select" name="kichhoat">
+                            <select class="custom-select dropdown-Tung" name="kichhoat">
                                 @if($chapter->kichhoat==0)
                                     <option selected value="0">Kích hoạt</option>
                                     <option value="1">Không kích hoạt</option>

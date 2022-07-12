@@ -30,7 +30,7 @@
       </div>
       @endforeach
     </div>
-    <a class="btn btn-success btn-read-all" href="xem-truyen">Xem tất cả</a>
+
   </div>
 </div>
 
