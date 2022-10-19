@@ -42,7 +42,7 @@
 
   <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-      <div class="container-fluid">
+      <div class="container-fluid" style="padding-left: 250px;">
         <a class="navbar-brand" href="{{ url('/home') }}"> Admin Sách Truyện </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -95,7 +95,7 @@
     <main class="py-4">
       <div>
         <div class="hold-transition sidebar-mini layout-fixed">
-          <div class="wrapper" style="width: 250px; display: flex; float: left; height: 100vh; position: absoluted; left: 0;
+          <div class="wrapper" style="width: 250px; display: flex; position: fixed; left: 0;
           bottom: 0; top: 0;"> 
               
             <!-- Main Sidebar Container -->
@@ -208,12 +208,12 @@
                       </a>
                       <ul class="nav nav-treeview">
                         <li class="nav-item">
-                          <a href="#" class="nav-link">
+                          <a href="{{route('supplieres.create')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i> <p>Thêm Nhà Cung Cấp</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="#" class="nav-link">
+                          <a href="{{route('supplieres.index')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i> <p>Liệt kê Nhà Cung Cấp</p>
                           </a>
                         </li>
