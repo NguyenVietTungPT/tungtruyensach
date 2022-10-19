@@ -11,8 +11,11 @@
 }
 
 .tr-content {
-    font-size: 17px;
-    
+    font-size: 17px;  
+}
+
+.stt {
+    text-align: center;
 }
 
 .btn-add-edit {
@@ -61,27 +64,27 @@
     background: lightseagreen !important;
 }
 
-.sidebar img {
+.sidebarr img {
     height: 170px;
     width: 130px;
     margin-bottom: 5px;
 }
 
-.sidebar p {
+.sidebarr p {
     font-size: 20px;
     margin-left: 10px;
 }
 
-.sidebar a {
+.sidebarr a {
     font-size: 15px;
     text-decoration: none;
 }
 
-.sidebar a:hover {
+.sidebarr a:hover {
     color: green;
 }
 
-.sidebar:hover{
+.sidebarr:hover{
     color: green;
     font-size: 18px;
     font-weight: bold;

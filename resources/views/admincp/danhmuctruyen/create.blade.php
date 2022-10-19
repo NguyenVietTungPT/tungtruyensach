@@ -2,9 +2,12 @@
 
 @section('content')
 
-@include('layouts.nav')
-<div class="container">
+{{-- @include('layouts.nav') --}}
+<div class="container-fluid">
     <div class="row justify-content-center">
+        {{-- <div class="col-md-2" style="height: 100%">
+          @include('layouts.nav')
+        </div> --}}
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header header-title">Thêm Danh Mục Truyện</div>

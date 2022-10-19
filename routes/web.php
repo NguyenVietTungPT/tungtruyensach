@@ -41,6 +41,8 @@ Route::post('/truyennoibat', [TruyenController::class, 'truyennoibat']);
 
 Auth::routes();
 
+
+//admin 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::resource('/danhmuc', DanhmucController::class);
 Route::resource('/theloai', TheloaiController::class);
