@@ -16,9 +16,8 @@
           <a href="{{url('xem-sach/'.$value2->slug_sach)}}">
             <img class="card-img-top" src="{{asset('public/uploads/sach/'.$value2->hinhanh)}}">
             <div class="card-body">
-            <h4> <b> {{$value2->tensach}} </b></h4>
+            <p class="main-book-name"> <b> {{$value2->tensach}} </b></p>
           </a>
-            <p class="card-text">{{$value2->tomtat}}</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group" style="margin: 0 auto;">
 
@@ -92,9 +91,8 @@
           <a href="{{url('xem-truyen/'.$value->slug_truyen)}}">
             <img class="card-img-top" src="{{asset('public/uploads/truyen/'.$value->hinhanh)}}">
             <div class="card-body">
-            <h4> <b> {{$value->tentruyen}} </b></h4>
+            <p class="main-book-name"> <b> {{$value->tentruyen}} </b></p>
           </a>
-            <p class="card-text">{{$value->tomtat}}</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group btn-read-book">
                 <a href="{{url('xem-truyen/'.$value->slug_truyen)}}" class="btn btn-sm btn-outline-secondary">Đọc ngay</a>

@@ -94,6 +94,13 @@
                         <span class="sr-only"> </span>
                       </a>
                     </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{url('mua-sam')}}">
+                        <i class="nav-icon fas fa-money-check-alt"></i> Mua Sắm
+                        <span class="sr-only"> </span>
+                      </a>
+                    </li>
                   </ul>
                 </div>
             </nav>
@@ -101,12 +108,12 @@
         </div>
 
 
-          <div class="container" style="min-height: 520px;">
+          <div class="container" style="min-height: 520px">
             <div class="row search-box">
               <div class="col-md-12">
-                <form autocomplete="off" class="form-inline my-2 my-lg-0" style="display: flex;" action="{{url('tim-kiem')}}" method="GET">
+                <form autocomplete="off" class="form-inline my-2 my-lg-0" style="display: flex; margin-left: 18%" action="{{url('tim-kiem')}}" method="GET">
                   @csrf
-                  <input class="form-control mr-sm-2" type="search" id="keywords" name="tukhoa" style ="margin-right: 10px" placeholder="Tìm kiếm tác giả, truyện,..." aria-label="Search">
+                  <input class="form-control mr-sm-2" type="search" id="keywords" name="tukhoa" style ="margin-right: 10px; width: 700px" placeholder="Tìm kiếm tác giả, truyện,..." aria-label="Search">
                   <div id="search_ajax"> </div>
                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style ="width: 120px;">Tìm kiếm</button>
                 </form>
@@ -141,9 +148,9 @@
         
 
         {{-- Footer --}}
-        <footer class="text-muted footer">
+        <footer class="text-muted footer-web">
           <div class="container-fluid" style="height: 260px;">
-            <div class="container">
+            <div class="container" style="color: white">
               <div class="row">
                 <div class="col-md-4">
                   <div class="footer-info">
@@ -185,7 +192,7 @@
             </div>
             
             <p class="float-right uptotop">
-              <a href="#"> <i class="fas fa-arrow-alt-circle-up"></i> </a>
+              <a href="#" style="font-size: 50px"> <i class="fas fa-arrow-alt-circle-up"></i> </a>
             </p>
 
           </div>

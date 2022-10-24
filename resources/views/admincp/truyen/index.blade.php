@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-  @include('layouts.nav')
   <div class="container-fluid">
     <div class="row justify-content-center content-layout-admin">
       {{-- <div class="col-md-2" style="height: 100%">
@@ -10,7 +9,6 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header header-title">Liệt Kê Truyện</div>
-
           <div class="card-body">
             <div id="thongbao"> </div>
             @if (session('status'))
@@ -27,7 +25,7 @@
                   <th class="col-md-1">Tác giả</th>
                   <th scope="col">Hình ảnh</th>
                   {{-- <th class="col-md-2">Slug Truyện</th> --}}
-                  <th class="col-md-2">Tóm tắt</th>
+                  <th class="mota-tomtat col-md-2">Tóm tắt</th>
                   <th class="col-md-2">Danh mục</th>
                   <th class="col-md-1">Thể loại</th>
                   <th class="col-md-2">Kích hoạt</th>

@@ -15,7 +15,7 @@
           {{-- <a href="{{url('xem-sach/'.$value->slug_sach)}}"> --}}
           <img class="card-img-top" src="{{asset('public/uploads/sach/'.$value->hinhanh)}}">
           <div class="card-body">
-            <h4> <b> {{$value->tensach}} </b> </h4>
+            <p class="main-book-name"> <b> {{$value->tensach}} </b> </p>
             <p class="card-text">{{$value->tomtat}}</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group" style="margin: 0 auto;">
@@ -54,9 +54,7 @@
                       </div>
                     </div>
                   </div>  
-
                 </form>
-
 
                 <a class="btn btn-sm btn-outline-secondary"> <i class="fas fa-eye"></i> {{$value->views}} </a>
               </div>
@@ -68,10 +66,6 @@
       </div>
       @endforeach
     </div>
-    
   </div>
 </div>
-
-
-
 @endsection

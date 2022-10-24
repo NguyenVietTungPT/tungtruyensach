@@ -96,7 +96,6 @@
 
               <button type="submit" class="btn btn-primary btn-add-edit">Thêm Truyện</button>
             </form>
-
           </div>
         </div>
       </div>

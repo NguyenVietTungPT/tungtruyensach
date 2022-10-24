@@ -24,7 +24,7 @@
                             <th scope="col">STT</th>
                             <th class="col-md-2">Tên danh mục</th>
                             <th class="col-md-2">Slug danh mục</th>
-                            <th scope="col">Mô tả</th>
+                            <th scope="col" class="mota-tomtat">Mô tả</th>
                             <th class="col-md-1">Kích hoạt</th>
                             <th class="col-md-1">Quản lý</th>
                           </tr>

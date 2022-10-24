@@ -24,17 +24,14 @@ use App\Http\Controllers\IndexController;
 Route::get('/', [IndexController::class, 'home']);
 
 Route::get('/danh-muc/{slug}', [IndexController::class, 'danhmuc']);
-
 Route::get('/xem-truyen/{slug}', [IndexController::class, 'xemtruyen']);
-
 Route::get('/xem-chapter/{slug}', [IndexController::class, 'xemchapter']);
-
 Route::get('/the-loai/{slug}', [IndexController::class, 'theloai']);
-
 Route::get('/doc-truyen', [IndexController::class, 'doctruyen']);
 Route::get('/doc-sach', [IndexController::class, 'docsach']);
 Route::post('/xemsachnhanh', [IndexController::class, 'xemsachnhanh']);
-
+Route::get('/mua-sam', [IndexController::class, 'muasam']);
+Route::get('/product-detail/{slug}', [IndexController::class, 'productdetail']);
 
 Route::get('/tim-kiem', [IndexController::class, 'timkiem']);
 // Route::post('/timkiem-ajax', [IndexController::class, 'timkiem_ajax']);

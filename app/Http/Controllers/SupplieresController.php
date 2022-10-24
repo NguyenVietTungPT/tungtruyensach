@@ -56,6 +56,7 @@ class SupplieresController extends Controller
         $supplieres->sl_phone   = $data['sl_phone'];
         $supplieres->sl_email   = $data['sl_email'];
         $supplieres->sl_address = $data['sl_address'];
+        // $supplieres->danhmuc_id = $data['danhmuc'];
         $supplieres->save();
         return redirect()->back()->with('status', 'Thêm danh Nhà cung cấp thành công!');
     }
@@ -68,8 +69,7 @@ class SupplieresController extends Controller
      */
     public function show($id)
     {
-        $supplieres = Supplieres::find($id);
-        return view('admincp.supplieres.edit')->with(compact('supplieres'));
+        
     }
 
     /**
