@@ -37,7 +37,6 @@
 
     
     <div class="col-md-5">
-
       <style type="text/css">
         .isDisabled {
           color: currentColor;
@@ -48,7 +47,7 @@
       </style>
 
       <div class="form-group">
-        <label for="exampleInputEmail1">Chọn chương </label>
+        <label for="exampleInputEmail1">Chọn chương</label>
         <p> <a class="btn btn-primary {{$chapter->id == $min_id->id ? 'isDisabled' : ''}}" href="{{url('xem-chapter/'.$previous_chapter)}}"> Tập trước </a> </p>
         <select name="select-chapter" class="custom-select select-chapter">
           @foreach($all_chapter as $key => $chap)

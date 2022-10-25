@@ -2,13 +2,14 @@
 
 @section('content')
 
-@include('layouts.nav')
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container-fluid">
+    <div class="row justify-content-center content-layout-admin">
+        {{-- <div class="col-md-2" style="height: 100%">
+          @include('layouts.nav')
+        </div> --}}
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header header-title">Thêm Chương Truyện</div>
-
                 {{-- Validation --}}
                 @if ($errors->any())
                     <div class="alert alert-danger">

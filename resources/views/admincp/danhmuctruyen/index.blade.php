@@ -2,10 +2,12 @@
 
 @section('content')
 
-@include('layouts.nav')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
+<div class="container-fluid">
+  <div class="row justify-content-center content-layout-admin">
+      {{-- <div class="col-md-2" style="height: 100%">
+        @include('layouts.nav')
+      </div> --}}
+      <div class="col-md-12">
             <div class="card">
                 <div class="card-header header-title">Liệt Kê Danh Mục Truyện</div>
 
@@ -30,7 +32,7 @@
                         <tbody>
                         @foreach($danhmuctruyen as $key => $danhmuc)
                             <tr class="tr-content">
-                                <th scope="row">{{$key+1}}</th>
+                                <th scope="row" class="stt">{{$key+1}}</th>
                                 <td>{{$danhmuc->tendanhmuc}}</td>
                                 <td>{{$danhmuc->slug_danhmuc}}</td>
                                 <td>{{$danhmuc->mota}}</td>

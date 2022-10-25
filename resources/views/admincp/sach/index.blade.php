@@ -3,8 +3,11 @@
 @section('content')
 
 @include('layouts.nav')
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container-fluid">
+    <div class="row justify-content-center content-layout-admin">
+        {{-- <div class="col-md-2" style="height: 100%">
+          @include('layouts.nav')
+        </div> --}}
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header header-title">Liệt Kê Sách</div>
@@ -32,7 +35,7 @@
                         <tbody>
                         @foreach($list_sach as $key => $sach)
                             <tr class="tr-content">
-                                <th scope="row">{{$key+1}}</th>
+                                <th scope="row" class="stt">{{$key+1}}</th>
                                 <td>{{$sach->tensach}}</td>
                                 <td> <img src="{{asset('public/uploads/sach/'.$sach->hinhanh)}}" height="250" width="180"> </td>
                                 <td>{{$sach->slug_sach}}</td>

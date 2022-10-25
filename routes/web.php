@@ -2,11 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\DanhmucController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\SachController;
+use App\Http\Controllers\SupplieresController;
 use App\Http\Controllers\TheloaiController;
 use App\Http\Controllers\TruyenController;
-use App\Http\Controllers\ChapterController;
-use App\Http\Controllers\SachController;
 use App\Http\Controllers\IndexController;
 /*
 |--------------------------------------------------------------------------
@@ -41,9 +43,13 @@ Route::post('/truyennoibat', [TruyenController::class, 'truyennoibat']);
 
 Auth::routes();
 
+
+//admin 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::resource('/chapter', ChapterController::class);
 Route::resource('/danhmuc', DanhmucController::class);
+Route::resource('/products', ProductsController::class);
+Route::resource('/sach', SachController::class);
+Route::resource('/supplieres', SupplieresController::class);
 Route::resource('/theloai', TheloaiController::class);
 Route::resource('/truyen', TruyenController::class);
-Route::resource('/sach', SachController::class);
-Route::resource('/chapter', ChapterController::class);

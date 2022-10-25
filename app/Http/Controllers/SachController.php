@@ -41,10 +41,10 @@ class SachController extends Controller
             [
                 'tensach'   => 'required|unique:sach|max:255',
                 'slug_sach' => 'required|unique:sach|max:255',
-                'tomtat'      => 'required',
-                'noidung'      => 'required',
-                'hinhanh'     => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=2000,max_height=2000',
-                'kichhoat'    => 'required',
+                'tomtat'    => 'required',
+                'noidung'   => 'required',
+                'hinhanh'   => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=2000,max_height=2000',
+                'kichhoat'  => 'required',
             ],
             [
                 'tensach.unique'     => 'Tên Sách đã có, xin điền tên khác',
@@ -52,7 +52,7 @@ class SachController extends Controller
                 'slug_sach.unique'   => 'Slug Sách đã có, xin điền Slug khác',
                 'slug_sach.required' => 'Phải nhập Slug Sách',
                 'tomtat.required'  => 'Phải nhập Mô Tả Sách',
-                'noidung.required'  => 'Phải nhập Nội dung Sách',
+                'noidung.required' => 'Phải nhập Nội dung Sách',
                 'hinhanh.required' => 'Phải nhập Hình ảnh Sách',
             ]
         );
@@ -74,6 +74,11 @@ class SachController extends Controller
         $get_image->move($path,$new_image);
 
         $sach->hinhanh = $new_image;
+
+        // $sach = sach::where('views', $views)->first();
+        $sach->views = $data['views'];
+        $sach->sach_views = $sach->sach_views +1;
+        $sach->save();
 
         $sach->save();
         return redirect()->back()->with('status', 'Thêm sách thành công!');
@@ -115,16 +120,16 @@ class SachController extends Controller
             [
                 'tensach'   => 'required|max:255',
                 'slug_sach' => 'required|max:255',
-                'tomtat'      => 'required',
-                'noidung'      => 'required',
-                'hinhanh'     => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=2000,max_height=2000',
-                'kichhoat'    => 'required',
+                'tomtat'    => 'required',
+                'noidung'   => 'required',
+                'hinhanh'   => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=2000,max_height=2000',
+                'kichhoat'  => 'required',
             ],
             [
                 'tensach.required'   => 'Phải nhập Tên Sách',
                 'slug_sach.required' => 'Phải nhập Slug Sách',
                 'tomtat.required'  => 'Phải nhập Mô Tả Sách',
-                'noidung.required'  => 'Phải nhập Nội dung Sách',
+                'noidung.required' => 'Phải nhập Nội dung Sách',
                 'hinhanh.required' => 'Phải nhập Hình ảnh Sách',
             ]
         );
