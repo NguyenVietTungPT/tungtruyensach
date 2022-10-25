@@ -254,8 +254,6 @@
 
 
         {{-- Màu nền trang web --}}
-        
-
         <script type="text/javascript">
             $('.owl-carousel').owlCarousel({
                 loop:true,
@@ -274,7 +272,6 @@
                 }
             })
         </script>
-      
 
         <script type="text/javascript">
           $('.select-chapter').on('change',function(){
@@ -301,6 +298,26 @@
         <script async defer crossorigin="anonymous" 
         src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v14.0" nonce="k73iEoIw"></script>
         <!-- AdminLTE App + jQuery-->
-        <script src="{{ asset('dist/js/adminlte.js') }}"></script>  
+        <script src="{{ asset('dist/js/adminlte.js') }}"></script> 
+        
+        <script>
+          const plus = document.querySelector(".plus"),
+           minus = document.querySelector(".minus"),
+           num = document.querySelector(".num");
+           let a = 1;
+           plus.addEventListener("click", ()=>{
+             a++;
+             a = (a < 10) ? "0" + a : a;
+             num.innerText = a;
+           });
+        
+           minus.addEventListener("click", ()=>{
+             if(a > 1){
+               a--;
+               a = (a < 10) ? "0" + a : a;
+               num.innerText = a;
+             }
+           });
+         </script>
     </body>
 </html>

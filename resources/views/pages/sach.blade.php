@@ -10,7 +10,7 @@
   <div class="container">
     <div class="row">
       @foreach($sach as $key => $value)
-      <div class="col-md-3">
+      <div class="col-md-3" style="margin-bottom: 25px;">
         <div class="card mb-3 box-shadow main-book">
           {{-- <a href="{{url('xem-sach/'.$value->slug_sach)}}"> --}}
           <img class="card-img-top" src="{{asset('public/uploads/sach/'.$value->hinhanh)}}">

@@ -30,7 +30,7 @@
             </div>
         @else
             @foreach($truyen as $key => $value)
-                <div class="col-md-3">
+                <div class="col-md-3" style="margin-bottom: 25px;">
                 <div class="card mb-3 box-shadow main-book">
                     <a href="{{url('xem-truyen/'.$value->slug_truyen)}}"> 
                         <img class="card-img-top" src="{{asset('public/uploads/truyen/'.$value->hinhanh)}}">

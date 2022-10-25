@@ -15,8 +15,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $product = Products::orderBy('id', 'DESC')->get();
-        return view('admincp.products.index')->where('pro_active', 0)->with(compact('product'));
+        $product = Products::orderBy('id', 'DESC')->where('pro_active', 0)->get();
+        return view('admincp.products.index')->with(compact('product'));
     }
 
     /**

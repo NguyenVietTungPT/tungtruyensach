@@ -40,11 +40,11 @@ class IndexController extends Controller
       return view('pages.home')->with(compact('danhmuc','truyen','sach', 'theloai','slide_truyen'));
     }
 
-    public function productdetail(){
+    public function productdetail($slug){
       $danhmuc = DanhmucTruyen::orderBy('id','DESC')->get();
       $theloai = Theloai::orderBy('id','DESC')->get();
-      $product = Products::orderBy('id','DESC')->where('pro_active',0)->paginate(20);
-      
+      $product = Products::orderBy('id','DESC')->where('pro_slug',$slug)->where('pro_active',0)->first();
+    
       return view('pages.productdetail')->with(compact('product','danhmuc','theloai'));
     }
 
