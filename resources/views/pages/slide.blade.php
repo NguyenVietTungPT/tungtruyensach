@@ -16,7 +16,7 @@
     @foreach($slide_truyen as $key => $slide)
     <div class="item slide-book">
         <img src="{{asset('public/uploads/truyen/'.$slide->hinhanh)}}">
-        <h3> <b> {{$slide->tentruyen}} </b> </h3>
+        <p class="main-book-name"> <b> {{$slide->tentruyen}} </b> </p>
         {{-- <p> <i class="fas fa-eye"></i> {{$slide->views}} </p> --}}
         <a class="btn btn-primary btn-sm btn-slide" href="{{url('xem-truyen/'.$slide->slug_truyen)}}">Đọc ngay</a>
     </div>

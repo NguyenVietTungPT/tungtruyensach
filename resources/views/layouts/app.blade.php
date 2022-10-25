@@ -227,12 +227,12 @@
                       </a>
                       <ul class="nav nav-treeview">
                         <li class="nav-item">
-                          <a href="#" class="nav-link">
+                          <a href="{{route('products.create')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i> <p>Thêm Mặt Hàng</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="#" class="nav-link">
+                          <a href="{{route('products.index')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i> <p>Liệt kê Mặt Hàng</p>
                           </a>
                         </li>
@@ -371,5 +371,25 @@
 
   <!-- AdminLTE App + jQuery-->
   <script src="{{ asset('dist/js/adminlte.js') }}"></script>
+  <script>//<![CDATA[
+    $('input.input-qty').each(function() {
+      var $this = $(this),
+        qty = $this.parent().find('.is-form'),
+        min = Number($this.attr('min')),
+        max = Number($this.attr('max'))
+      if (min == 0) {
+        var d = 0
+      } else d = min
+      $(qty).on('click', function() {
+        if ($(this).hasClass('minus')) {
+          if (d > min) d += -1
+        } else if ($(this).hasClass('plus')) {
+          var x = Number($this.val()) + 1
+          if (x <= max) d += 1
+        }
+        $this.attr('value', d).val(d)
+      })
+    })
+    //]]></script> 
 </body>
 </html>

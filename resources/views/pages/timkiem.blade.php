@@ -30,14 +30,13 @@
             </div>
         @else
             @foreach($truyen as $key => $value)
-                <div class="col-md-3">
+                <div class="col-md-3" style="margin-bottom: 25px;">
                 <div class="card mb-3 box-shadow main-book">
                     <a href="{{url('xem-truyen/'.$value->slug_truyen)}}"> 
                         <img class="card-img-top" src="{{asset('public/uploads/truyen/'.$value->hinhanh)}}">
                         <div class="card-body">
-                        <h4> <b> {{$value->tentruyen}} </b> </h4>
+                        <p class="main-book-name"> <b> {{$value->tentruyen}} </b> </p>
                     </a>
-                    <p class="card-text">{{$value->tomtat}}</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group btn-product">
                             <a href="{{url('xem-truyen/'.$value->slug_truyen)}}" class="btn btn-sm btn-outline-secondary">Đọc ngay</a>
