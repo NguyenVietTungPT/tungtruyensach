@@ -76,9 +76,9 @@ class SachController extends Controller
         $sach->hinhanh = $new_image;
 
         // $sach = sach::where('views', $views)->first();
-        $sach->views = $data['views'];
-        $sach->sach_views = $sach->sach_views +1;
-        $sach->save();
+        // $sach->views = $data['views'];
+        // $sach->sach_views = $sach->sach_views +1;
+        // $sach->save();
 
         $sach->save();
         return redirect()->back()->with('status', 'Thêm sách thành công!');

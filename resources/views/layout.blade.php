@@ -168,7 +168,7 @@
                 <div class="col-md-4">
                   <p> 235 Hoàng Quốc Việt 
                     <br> Cổ Nhuế, Bắc Từ Liêm, Hà Nội, Việt Nam <br><br> 
-                    <strong>Phone:</strong> <a href="tel:123-456-7890">123-456-7890</a> <br> 
+                    <strong>Phone:</strong> <a href="tel:0975141928">0975141928</a> <br> 
                     <strong>Email:</strong> <a href = "mailto: tungnv2@fabbi.com.vn">tungnv2@fabbi.com.vn</a> <br>
                   </p>
                   <div class="social-links mt-3"> 

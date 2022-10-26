@@ -36,7 +36,6 @@
           </li>
           {{-- <li> Số chapter: 100 </li> --}}
           <li> Lượt xem: {{$truyen->views}} </li>
-          <li> <a href="#"> Xem mục lục </a> </li>
 
             @if($chapter_dau)
               <li> 
