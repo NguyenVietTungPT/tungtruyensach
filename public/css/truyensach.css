@@ -358,3 +358,10 @@
     border-left: 2px solid rgba(0,0,0,0.2);
     pointer-events: none;
   }
+
+  .center {
+    text-align: center;
+    margin: auto;
+    position: relative;
+    left: 20%;
+  }

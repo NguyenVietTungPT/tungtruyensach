@@ -42,7 +42,7 @@
 
         <div class="container-fluid" style="background: #00A143 !important">
             {{-- Menu --}}
-          <div class="container">
+          <div class="container-fluid center">
             <nav class="navbar navbar-expand-lg navbar-light bg-light"  style="background: #00A143 !important">
                 <a class="navbar-brand" href="#">
                   <img src="{{asset('public/logo.jpg/')}}" height="50"; width="100px"> 
@@ -98,6 +98,20 @@
                     <li class="nav-item">
                       <a class="nav-link" href="{{url('mua-sam')}}">
                         <i class="nav-icon fas fa-money-check-alt"></i> Mua Sắm
+                        <span class="sr-only"> </span>
+                      </a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{url('mua-sam')}}">
+                        <i class="far fa-user"></i> Tài khoản
+                        <span class="sr-only"> </span>
+                      </a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{url('mua-sam')}}">
+                        <i class="fas fa-cart-plus"></i> Giỏ hàng
                         <span class="sr-only"> </span>
                       </a>
                     </li>
