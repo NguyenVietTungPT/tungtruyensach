@@ -43,7 +43,7 @@
   <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
       <div class="container-fluid" style="padding-left: 250px;">
-        <a class="navbar-brand" href="{{ url('/home') }}"> Admin Sách Truyện </a>
+        <a class="navbar-brand" href="{{ url('/home') }}">Đăng nhập tài khoản</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
           <span class="navbar-toggler-icon"></span>
@@ -95,7 +95,7 @@
     <main class="py-4">
       <div>
         <div class="hold-transition sidebar-mini layout-fixed">
-          <div class="wrapper" style="width: 250px; display: flex; position: fixed; left: 0;
+          <div class="wrapper {{ !Auth::user() ? 'd-none' : '' }}" style="width: 250px; display: flex; position: fixed; left: 0;
           bottom: 0; top: 0;"> 
               
             <!-- Main Sidebar Container -->
@@ -114,12 +114,12 @@
                       
                       <ul class="nav nav-treeview">
                         <li class="nav-item">
-                          <a href="{{route('danhmuc.create')}}" class="nav-link">
+                          <a href="{{ Auth::user() ? route('danhmuc.create') : route('login')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"> </i> <p>Thêm danh mục</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="{{route('danhmuc.index')}}" class="nav-link">
+                          <a href="{{ Auth::user() ? route('danhmuc.index') : route('login')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i> <p>Liệt kê danh mục</p>
                           </a>
                         </li>
@@ -133,12 +133,12 @@
                       </a>
                       <ul class="nav nav-treeview">
                         <li class="nav-item">
-                          <a href="{{route('theloai.create')}}" class="nav-link">
+                          <a href="{{ Auth::user() ? route('theloai.create') : route('login')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i> <p>Thêm thể loại</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="{{route('theloai.index')}}" class="nav-link">
+                          <a href="{{ Auth::user() ? route('theloai.index') : route('login')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i> <p>Liệt kê thể loại</p>
                           </a>
                         </li>
@@ -151,12 +151,12 @@
                       </a>
                       <ul class="nav nav-treeview">
                         <li class="nav-item">
-                          <a href="{{route('truyen.create')}}" class="nav-link">
+                          <a href="{{ Auth::user() ? route('truyen.create') : route('login')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i> <p>Thêm truyện</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="{{route('truyen.index')}}" class="nav-link">
+                          <a href="{{ Auth::user() ? route('truyen.index') : route('login')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i> <p>Liệt kê truyện</p>
                           </a>
                         </li>
@@ -170,12 +170,12 @@
                       </a>
                       <ul class="nav nav-treeview">
                         <li class="nav-item">
-                          <a href="{{route('chapter.create')}}" class="nav-link">
+                          <a href="{{ Auth::user() ? route('chapter.create') : route('login')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i> <p>Thêm Chapter</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="{{route('chapter.index')}}" class="nav-link">
+                          <a href="{{ Auth::user() ? route('chapter.index') : route('login')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i> <p>Liệt kê Chapter</p>
                           </a>
                         </li>
@@ -189,12 +189,12 @@
                       </a>
                       <ul class="nav nav-treeview">
                         <li class="nav-item">
-                          <a href="{{route('sach.create')}}" class="nav-link">
+                          <a href="{{ Auth::user() ? route('sach.create') : route('login')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i> <p>Thêm sách</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="{{route('sach.index')}}" class="nav-link">
+                          <a href="{{ Auth::user() ? route('sach.index') : route('login')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i> <p>Liệt kê sách</p>
                           </a>
                         </li>
@@ -208,12 +208,12 @@
                       </a>
                       <ul class="nav nav-treeview">
                         <li class="nav-item">
-                          <a href="{{route('supplieres.create')}}" class="nav-link">
+                          <a href="{{ Auth::user() ? route('supplieres.create') : route('login')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i> <p>Thêm Nhà Cung Cấp</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="{{route('supplieres.index')}}" class="nav-link">
+                          <a href="{{ Auth::user() ? route('supplieres.index') : route('login')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i> <p>Liệt kê Nhà Cung Cấp</p>
                           </a>
                         </li>
@@ -227,12 +227,12 @@
                       </a>
                       <ul class="nav nav-treeview">
                         <li class="nav-item">
-                          <a href="{{route('products.create')}}" class="nav-link">
+                          <a href="{{ Auth::user() ? route('products.create') : route('login')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i> <p>Thêm Mặt Hàng</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="{{route('products.index')}}" class="nav-link">
+                          <a href="{{ Auth::user() ? route('products.index') : route('login')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i> <p>Liệt kê Mặt Hàng</p>
                           </a>
                         </li>
@@ -304,7 +304,6 @@
   <script type="text/javascript">
     function ChangeToSlug() {
       var slug;
-
       //Lấy text từ thẻ input title 
       slug = document.getElementById("slug").value;
       slug = slug.toLowerCase();
