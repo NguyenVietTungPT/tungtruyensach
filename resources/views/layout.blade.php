@@ -95,26 +95,51 @@
                       </a>
                     </li>
 
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                       <a class="nav-link" href="{{url('mua-sam')}}">
                         <i class="nav-icon fas fa-money-check-alt"></i> Mua Sắm
                         <span class="sr-only"> </span>
                       </a>
-                    </li>
+                    </li> --}}
+                    @guest
+                    @if (Route::has('login'))
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">Đăng nhập</a>
+                      </li>
+                    @endif
 
-                    <li class="nav-item">
-                      <a class="nav-link" href="{{url('mua-sam')}}">
-                        <i class="far fa-user"></i> Tài khoản
-                        <span class="sr-only"> </span>
+                    @if (Route::has('register'))
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">Đăng ký</a>
+                      </li>
+                    @endif
+                  @else
+                    <li class="nav-item dropdown">
+                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }}
                       </a>
-                    </li>
 
-                    <li class="nav-item">
+                      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                          onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();">
+                          {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                          @csrf
+                        </form>
+                      </div>
+                    </li>
+                  @endguest
+
+                    {{-- <li class="nav-item">
                       <a class="nav-link" href="{{url('mua-sam')}}">
                         <i class="fas fa-cart-plus"></i> Giỏ hàng
                         <span class="sr-only"> </span>
                       </a>
-                    </li>
+                    </li> --}}
                   </ul>
                 </div>
             </nav>

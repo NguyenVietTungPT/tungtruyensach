@@ -11,6 +11,7 @@ use App\Http\Controllers\SupplieresController;
 use App\Http\Controllers\TheloaiController;
 use App\Http\Controllers\TruyenController;
 use App\Http\Controllers\IndexController;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,18 +23,20 @@ use App\Http\Controllers\IndexController;
 |
 */
 
-Route::get('/', [IndexController::class, 'home']);
+Route::get('/', [IndexController::class, 'home'])->name('homePage');
 
 //admin 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::resource('/cart', CartController::class);
-Route::resource('/chapter', ChapterController::class);
-Route::resource('/danhmuc', DanhmucController::class);
-Route::resource('/products', ProductsController::class);
-Route::resource('/sach', SachController::class);
-Route::resource('/supplieres', SupplieresController::class);
-Route::resource('/theloai', TheloaiController::class);
-Route::resource('/truyen', TruyenController::class);
+Route::group(['middleware' => ['auth', 'checkAccount']], function () {
+    Route::resource('/cart', CartController::class);
+    Route::resource('/chapter', ChapterController::class);
+    Route::resource('/danhmuc', DanhmucController::class);
+    Route::resource('/products', ProductsController::class);
+    Route::resource('/sach', SachController::class);
+    Route::resource('/supplieres', SupplieresController::class);
+    Route::resource('/theloai', TheloaiController::class);
+    Route::resource('/truyen', TruyenController::class);
+});
 
 
 Route::get('/danh-muc/{slug}', [IndexController::class, 'danhmuc']);
@@ -56,4 +59,3 @@ Auth::routes();
 
 // Cart
 Route::post('/save-cart', [CartController::class, 'save_cart']);
-
