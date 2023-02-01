@@ -13,11 +13,9 @@
       @foreach($sach as $key => $value2)
       <div class="col-md-3" style="margin-bottom: 25px;">
         <div class="card mb-3 box-shadow main-book">
-          <a href="{{url('xem-sach/'.$value2->slug_sach)}}">
             <img class="card-img-top" src="{{asset('public/uploads/sach/'.$value2->hinhanh)}}">
             <div class="card-body">
             <p class="main-book-name"> <b> {{$value2->tensach}} </b></p>
-          </a>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group" style="margin: 0 auto;">
 
@@ -59,7 +57,7 @@
                 </form>
 
                 
-                <a class="btn btn-sm btn-outline-secondary"> <i class="fas fa-eye"></i> {{$value2->views}} </a>
+                <a class="btn btn-sm btn-outline-secondary"> <i class="fa fa-heart"></i></a>
               </div>
 
               <small class="text-muted"> </small>

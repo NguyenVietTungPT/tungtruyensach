@@ -94,13 +94,21 @@
                         <span class="sr-only"> </span>
                       </a>
                     </li>
+                    @if (Auth::check())
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ route('theodoi') }}">
+                          <i class="fa fa-heart"> </i> Yêu thích
+                          <span class="sr-only"> </span>
+                        </a>
+                      </li>
 
-                    {{-- <li class="nav-item">
-                      <a class="nav-link" href="{{url('mua-sam')}}">
-                        <i class="nav-icon fas fa-money-check-alt"></i> Mua Sắm
-                        <span class="sr-only"> </span>
-                      </a>
-                    </li> --}}
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ route('lichsu') }}">
+                          <i class="fa fa-history"> </i> Lịch sử
+                          <span class="sr-only"> </span>
+                        </a>
+                      </li>
+                    @endif
                     @guest
                     @if (Route::has('login'))
                       <li class="nav-item">
@@ -129,17 +137,10 @@
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                           @csrf
-                        </form>
+                        </form>                       
                       </div>
                     </li>
                   @endguest
-
-                    {{-- <li class="nav-item">
-                      <a class="nav-link" href="{{url('mua-sam')}}">
-                        <i class="fas fa-cart-plus"></i> Giỏ hàng
-                        <span class="sr-only"> </span>
-                      </a>
-                    </li> --}}
                   </ul>
                 </div>
             </nav>
@@ -152,7 +153,7 @@
               <div class="col-md-12">
                 <form autocomplete="off" class="form-inline my-2 my-lg-0" style="display: flex; margin-left: 18%" action="{{url('tim-kiem')}}" method="GET">
                   @csrf
-                  <input class="form-control mr-sm-2" type="search" id="keywords" name="tukhoa" style ="margin-right: 10px; width: 700px" placeholder="Tìm kiếm tác giả, truyện,..." aria-label="Search">
+                  <input class="form-control mr-sm-2" type="search" id="keywords" name="tukhoa" style ="margin-right: 10px; width: 700px" placeholder="Tìm kiếm theo tên tác giả, truyện" aria-label="Search">
                   <div id="search_ajax"> </div>
                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style ="width: 120px;">Tìm kiếm</button>
                 </form>

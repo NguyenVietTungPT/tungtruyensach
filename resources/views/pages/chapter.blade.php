@@ -44,6 +44,14 @@
           opacity: 0.5;
           text-decoration: none;
         }
+        .noidungchuong {
+          -webkit-touch-callout: none;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          -o-user-select: none;
+           user-select: none;
+        }
       </style>
 
       <div class="form-group">
@@ -96,3 +104,20 @@
 
 
 @endsection
+
+<script>
+  function killCopy(e){
+        return false;
+  }
+
+  function reEnable(){
+        return true;
+  }
+
+  document.getElementsByClassName("noidungchuong")=new Function ("return false");
+
+  if (window.sidebar){
+        document.onmousedown=killCopy;
+        document.onclick=reEnable;
+  }
+</script>
