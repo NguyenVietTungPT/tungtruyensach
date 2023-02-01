@@ -11,6 +11,7 @@ use App\Http\Controllers\SupplieresController;
 use App\Http\Controllers\TheloaiController;
 use App\Http\Controllers\TruyenController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ActiveController;
 use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,12 @@ Route::group(['middleware' => ['auth', 'checkAccount']], function () {
     Route::resource('/theloai', TheloaiController::class);
     Route::resource('/truyen', TruyenController::class);
 });
+
+Route::get('/theo-doi', [ActiveController::class, 'theodoi'])->name('theodoi');
+Route::get('/yeu-thich/{slug}/{id}', [ActiveController::class, 'yeuthich']);
+Route::get('/huy-bo/{slug}/{id}', [ActiveController::class, 'huybo']);
+Route::get('/history', [ActiveController::class, 'lichsu'])->name('lichsu');
+Route::get('/xoa-lich-su/{mangaId}/{usesId}', [ActiveController::class, 'removelichsu']);
 
 
 Route::get('/danh-muc/{slug}', [IndexController::class, 'danhmuc']);

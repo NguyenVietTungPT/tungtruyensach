@@ -36,7 +36,21 @@
           </li>
           {{-- <li> Số chapter: 100 </li> --}}
           <li> Lượt xem: {{$truyen->views}} </li>
-
+          @if (Auth::user())
+            @if (!$favorite)
+            <li> 
+              <a href="{{url('yeu-thich/'.$truyen->slug_truyen."/".$chapter_moinhat->truyen_id)}}" class="btn mt-2 btn-xemtruyen btn-success mb-2"> 
+                Theo dõi 
+              </a> 
+            </li>
+            @else
+            <li> 
+              <a href="{{url('huy-bo/'.$truyen->slug_truyen."/".$chapter_moinhat->truyen_id)}}" class="btn mt-2 btn-xemtruyen btn-danger mb-2"> 
+                Bỏ theo dõi 
+              </a> 
+            </li>
+            @endif
+          @endif
             @if($chapter_dau)
               <li> 
                 <a href="{{url('xem-chapter/'.$chapter_dau->slug_chapter)}}" class="btn btn-primary btn-xemtruyen"> 
@@ -49,7 +63,6 @@
                   Đọc chương mới nhất 
                 </a> 
               </li>
-
             @else
               <li> <a class="btn btn-danger"> Hiện tại chưa có chương để đọc </a> </li>
             @endif
