@@ -94,6 +94,12 @@
                 </select>
               </div>
 
+              <div>
+                <label for="exampleInputEmail1" name="giatruyen"> Giá truyện </label>
+                <input type="text" class="form-control" value="{{ old('giatruyen') }}" onkeyup="ChangeToSlug();"
+                  name="giatruyen" id="slug" aria-describedby="emailHelp" placeholder="Giá truyện">
+              </div>
+
               <button type="submit" class="btn btn-primary btn-add-edit">Thêm Truyện</button>
             </form>
           </div>

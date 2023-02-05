@@ -22,6 +22,7 @@
                 <tr>
                   <th scope="col">STT</th>
                   <th class="col-md-2">Tên Truyện</th>
+                  <th class="col-md-2">Giá Truyện</th>
                   <th class="col-md-1">Tác giả</th>
                   <th scope="col">Hình ảnh</th>
                   {{-- <th class="col-md-2">Slug Truyện</th> --}}
@@ -38,6 +39,7 @@
                   <tr class="tr-content">
                     <th scope="row" class="stt">{{ $key + 1 }}</th>
                     <td>{{ $truyen->tentruyen }}</td>
+                    <td>{{ $truyen->price }}</td>
                     <td>{{ $truyen->tacgia }}</td>
                     <td> <img src="{{ asset('public/uploads/truyen/' . $truyen->hinhanh) }}" height="250" width="180">
                     </td>

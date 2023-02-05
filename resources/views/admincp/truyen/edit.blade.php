@@ -115,6 +115,12 @@
               {{-- <option value="0">Truyện mới</option>
                                 <option value="1">Truyện đọc nhiều</option>
                                 <option value="2">Truyện nổi bật</option> --}}
+              
+              <div>
+                <label for="exampleInputEmail1"> Giá truyện </label>
+                <input type="text" class="form-control" value="{{ $truyen->price }}" onkeyup="ChangeToSlug();"
+                  name="giatruyen" id="slug" aria-describedby="emailHelp" placeholder="Giá truyện">
+              </div>
 
               <button type="submit" class="btn btn-primary btn-add-edit">Cập nhật Truyện</button>
             </form>

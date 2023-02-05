@@ -97,8 +97,8 @@ class IndexController extends Controller
     $vnp_TmnCode = "879PHKBE"; //Mã website tại VNPAY 
     $vnp_HashSecret = "BJEICZWYOTLXTIAXESZSMNWQBKSHXAEL"; //Chuỗi bí mật
 
-    $vnp_TxnRef = $request->user_id . "+" . $request->book_id; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
-    $vnp_OrderInfo = "thanh toán đơn hàng";
+    $vnp_TxnRef = $request->user_id . "/" . $request->book_id; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
+    $vnp_OrderInfo = "Thanh toán đơn hàng";
     $vnp_OrderType = 'billpayment';
     $vnp_Amount = $request->book_price * 100;
     $vnp_Locale = 'VN';
@@ -205,11 +205,10 @@ class IndexController extends Controller
     $theloai = Theloai::orderBy('id', 'DESC')->get();
 
     $favorite = null;
-
-    $key_unlock = (string) (Auth::user()->id . "+" . $truyen->id);
-    $lock = Order::where("id",$key_unlock)->first() ? true : false;
-
+    $key_unlock = "";
+  
     if (Auth::check()) {
+      $key_unlock = (string) (Auth::user()->id . "+" . $truyen->id);
       $favorite = Active::where([
         "user_id" => Auth::user()->id,
         "manga_id" => $truyen->id,
@@ -224,6 +223,10 @@ class IndexController extends Controller
         ]);
         $lock = true;
     }
+    $lock = Order::where('id', $key_unlock)->first() ? true : false;
+    $lock = $truyen->price == 0 ?? true;
+    Truyen::find($truyen->id)->increment('views',1);
+
     return view('pages.truyen')->with(compact(
       'danhmuc',
       'truyen',

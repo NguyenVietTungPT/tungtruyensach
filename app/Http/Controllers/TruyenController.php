@@ -73,6 +73,7 @@ class TruyenController extends Controller
         $truyen->kichhoat = $data['kichhoat'];
         $truyen->danhmuc_id = $data['danhmuc'];
         $truyen->truyen_noibat = $data['truyennoibat'];
+        $truyen->price = $request->giatruyen ? $request->giatruyen : (int)0;
 
         // Thêm ảnh vào folder 
         $get_image = $request->hinhanh;
