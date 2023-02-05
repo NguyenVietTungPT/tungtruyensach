@@ -10,6 +10,8 @@ use App\Models\Sach;
 use App\Models\Theloai;
 use App\Models\Truyen;
 use App\Models\Active;
+use App\Models\Order;
+
 use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
@@ -88,6 +90,76 @@ class IndexController extends Controller
     echo json_encode($output);
   }
 
+  public function vnpay_payment(Request $request)
+  {
+    $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
+    $vnp_Returnurl = "http://127.0.0.1:8000/xem-truyen/" . $request->book_slug;
+    $vnp_TmnCode = "879PHKBE"; //Mã website tại VNPAY 
+    $vnp_HashSecret = "BJEICZWYOTLXTIAXESZSMNWQBKSHXAEL"; //Chuỗi bí mật
+
+    $vnp_TxnRef = $request->user_id . "+" . $request->book_id; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
+    $vnp_OrderInfo = "thanh toán đơn hàng";
+    $vnp_OrderType = 'billpayment';
+    $vnp_Amount = $request->book_price * 100;
+    $vnp_Locale = 'VN';
+    $vnp_BankCode = 'NCB';
+    // $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
+    //Add Params of 2.0.1 Version
+    // $vnp_ExpireDate = $_POST['txtexpire'];
+    //Billing
+    $inputData = array(
+      "vnp_Version" => "2.1.0",
+      "vnp_TmnCode" => $vnp_TmnCode,
+      "vnp_Amount" => $vnp_Amount,
+      "vnp_Command" => "pay",
+      "vnp_CreateDate" => date('YmdHis'),
+      "vnp_CurrCode" => "VND",
+      "vnp_Locale" => $vnp_Locale,
+      "vnp_OrderInfo" => $vnp_OrderInfo,
+      "vnp_OrderType" => $vnp_OrderType,
+      "vnp_ReturnUrl" => $vnp_Returnurl,
+      "vnp_TxnRef" => $vnp_TxnRef
+    );
+
+    if (isset($vnp_BankCode) && $vnp_BankCode != "") {
+      $inputData['vnp_BankCode'] = $vnp_BankCode;
+    }
+    if (isset($vnp_Bill_State) && $vnp_Bill_State != "") {
+      $inputData['vnp_Bill_State'] = $vnp_Bill_State;
+    }
+
+    //var_dump($inputData);
+    ksort($inputData);
+    $query = "";
+    $i = 0;
+    $hashdata = "";
+    foreach ($inputData as $key => $value) {
+      if ($i == 1) {
+        $hashdata .= '&' . urlencode($key) . "=" . urlencode($value);
+      } else {
+        $hashdata .= urlencode($key) . "=" . urlencode($value);
+        $i = 1;
+      }
+      $query .= urlencode($key) . "=" . urlencode($value) . '&';
+    }
+
+    $vnp_Url = $vnp_Url . "?" . $query;
+    if (isset($vnp_HashSecret)) {
+      $vnpSecureHash =   hash_hmac('sha512', $hashdata, $vnp_HashSecret); //  
+      $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
+    }
+
+    $returnData = array(
+      'code' => '00', 'message' => 'success', 'data' => $vnp_Url
+    );
+    if (isset($_POST['redirect'])) {
+      header('Location: ' . $vnp_Url);
+      die();
+    } else {
+      echo json_encode($returnData);
+    }
+  }
+
   public function danhmuc($slug)
   {
     $slide_truyen = Truyen::orderBy('id', 'DESC')->where('kichhoat', 0)->take(8)->get();
@@ -110,7 +182,7 @@ class IndexController extends Controller
     return view('pages.theloai')->with(compact('danhmuc', 'tentheloai', 'truyen', 'theloai', 'slide_truyen'));
   }
 
-  public function xemtruyen($slug)
+  public function xemtruyen($slug, Request $request)
   {
     $slide_truyen = Truyen::orderBy('id', 'DESC')->where('kichhoat', 0)->take(8)->get();
 
@@ -134,6 +206,9 @@ class IndexController extends Controller
 
     $favorite = null;
 
+    $key_unlock = Auth::user()->id . "+" . $truyen->id;
+    $lock = Order::where("id",$key_unlock)->first() ? true : false;
+
     if (Auth::check()) {
       $favorite = Active::where([
         "user_id" => Auth::user()->id,
@@ -141,7 +216,15 @@ class IndexController extends Controller
         "type" => 0
       ])->first();
     }
-
+    $id_order = (string)Auth::user()->id . "+" . $truyen->id;
+    if($request->vnp_ResponseCode == "00" && $lock) {
+        Order::create([
+          'id' => $id_order,
+          'user_id' => Auth::user()->id,
+          'manga_id' => $truyen->id,
+        ]);
+        $lock = true;
+    }
     return view('pages.truyen')->with(compact(
       'danhmuc',
       'truyen',
@@ -153,7 +236,8 @@ class IndexController extends Controller
       'chapter_moinhat',
       'truyenxemnhieu',
       'truyennoibat',
-      'favorite'
+      'favorite',
+      'lock'
     ));
   }
 
@@ -180,17 +264,20 @@ class IndexController extends Controller
       ])->update(['chapter' => $slug, 'title' => $chapter->truyen->tentruyen]);
 
       $check = Active::where(
-        ['user_id' => Auth::user()->id, 
-        'type' => 1, 
-        'manga_id' => $truyen_breadcrumb->id, 
-        'chapter' => $slug]
+        [
+          'user_id' => Auth::user()->id,
+          'type' => 1,
+          'manga_id' => $truyen_breadcrumb->id,
+          'chapter' => $slug
+        ]
       );
       if ($check->first()) {
         $check->update(['created_at' => now()]);
       } else {
         Active::create(
-          [ 'user_id' => Auth::user()->id, 
-            'type' => 1, 'manga_id' => $truyen_breadcrumb->id, 
+          [
+            'user_id' => Auth::user()->id,
+            'type' => 1, 'manga_id' => $truyen_breadcrumb->id,
             'chapter' => $slug,
             'chapter' => $slug,
             'title' => $chapter->truyen->tentruyen,
