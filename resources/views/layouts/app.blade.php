@@ -201,7 +201,8 @@
                       </ul>
                     </li> 
 
-                    <li class="nav-item">
+
+                    <!-- <li class="nav-item">
                       <a href="#" class="nav-link">
                         <i class="nav-icon fab fa-supple"></i>
                         <p>Quản lý Nhà Cung Cấp <i class="fas fa-angle-left right"></i> </p>
@@ -218,9 +219,9 @@
                           </a>
                         </li>
                       </ul>
-                    </li> 
+                    </li>  -->
 
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                       <a href="#" class="nav-link">
                         <i class="nav-icon fab fa-product-hunt"></i>
                         <p>Quản lý Mặt Hàng <i class="fas fa-angle-left right"></i> </p>
@@ -237,9 +238,9 @@
                           </a>
                         </li>
                       </ul>
-                    </li> 
+                    </li>  -->
 
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                       <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-money-check-alt"></i>
                         <p>Quản lý Đơn Đặt Hàng <i class="fas fa-angle-left right"></i> </p>
@@ -256,9 +257,9 @@
                           </a>
                         </li>
                       </ul>
-                    </li> 
+                    </li>  -->
 
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                       <a href="#" class="nav-link">
                         <i class="nav-icon far fa-newspaper"></i>
                         <p>Quản lý Bài Viết <i class="fas fa-angle-left right"></i> </p>
@@ -275,7 +276,7 @@
                           </a>
                         </li>
                       </ul>
-                    </li> 
+                    </li>  -->
         
                   </ul>
                 </nav>

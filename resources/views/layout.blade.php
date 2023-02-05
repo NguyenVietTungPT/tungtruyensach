@@ -42,7 +42,7 @@
 
         <div class="container-fluid" style="background: #00A143 !important">
             {{-- Menu --}}
-          <div class="container-fluid center">
+          <div class="container-fluid ">
             <nav class="navbar navbar-expand-lg navbar-light bg-light"  style="background: #00A143 !important">
                 <a class="navbar-brand" href="#">
                   <img src="{{asset('public/logo.jpg/')}}" height="50"; width="100px"> 

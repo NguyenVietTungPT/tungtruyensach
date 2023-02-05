@@ -3,7 +3,7 @@
 @section('content')
 
   <div class="container-fluid">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center content-layout-admin">
       {{-- <div class="col-md-2" style="height: 100%">
         @include('layouts.nav')
       </div> --}}
