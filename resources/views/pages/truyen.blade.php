@@ -28,6 +28,15 @@
                         </div>
 
                         <li> Tên truyện: {{ $truyen->tentruyen }} </li>
+                        @if( $truyen->price == 0)
+                        <li> Truyện miễn phí
+                        </li>
+                        @else
+                        <li> Giá truyện: {{ $truyen->price }} 
+                            <span>VND</span>
+                        </li>
+                        @endif
+
                         <li> Tác giả: {{ $truyen->tacgia }} </li>
                         <li>
                             Danh mục truyện:
@@ -41,7 +50,7 @@
                         </li>
                         {{-- <li> Số chapter: 100 </li> --}}
                         <li> Lượt xem: {{ $truyen->views }} </li>
-                        @if (Auth::user())
+                        @if (Auth::user() && isset($chapter_moinhat->truyen_id))
                             @if (!$favorite)
                                 <li>
                                     <div class="row">
@@ -57,11 +66,12 @@
                                                     @csrf
                                                     <input type="text" name="user_id" class="d-none"
                                                         value="{{ Auth::user()->id }}">
+                                                    
                                                     <input type="text" name="book_id" class="d-none"
                                                         value="{{ $chapter_moinhat->truyen_id }}">
                                                     <input type="text" name="book_slug" class="d-none"
                                                         value="{{ $truyen->slug_truyen }}">
-                                                    <input type="text" name="book_price" class="d-none" value="500000">
+                                                    <input type="text" name="book_price" class="d-none" value="{{ $truyen->price }}">
                                                     <button type="submit" class="btn btn-primary btn-add-edit"
                                                         name="redirect">Mua
                                                         sách</button>
