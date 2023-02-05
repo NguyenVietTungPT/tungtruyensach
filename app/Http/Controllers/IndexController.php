@@ -206,7 +206,7 @@ class IndexController extends Controller
 
     $favorite = null;
 
-    $key_unlock = (string)Auth::user()->id . "+" . $truyen->id;
+    $key_unlock = (string) (Auth::user()->id . "+" . $truyen->id);
     $lock = Order::where("id",$key_unlock)->first() ? true : false;
 
     if (Auth::check()) {
@@ -216,7 +216,7 @@ class IndexController extends Controller
         "type" => 0
       ])->first();
     }
-    if($request->vnp_ResponseCode == "00" && $lock) {
+    if($request->vnp_ResponseCode == "00" && !$lock) {
         Order::create([
           'id' => $key_unlock,
           'user_id' => Auth::user()->id,

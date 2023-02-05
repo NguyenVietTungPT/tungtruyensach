@@ -51,7 +51,7 @@
                                                 Theo dõi
                                             </a>
                                         </div>
-                                        @if ($lock)
+                                        @if (!$lock)
                                             <div class="col-sm">
                                                 <form action="{{ url('/vnpay_payment') }}" method="POST">
                                                     @csrf
@@ -79,7 +79,7 @@
                                 </li>
                             @endif
                         @endif
-                        @if ($chapter_dau)
+                        @if ($chapter_dau && $lock)
                             <li>
                                 <a href="{{ url('xem-chapter/' . $chapter_dau->slug_chapter) }}"
                                     class="btn btn-primary btn-xemtruyen">
@@ -105,18 +105,25 @@
             </div>
             <hr>
             <h4> Mục Lục </h4>
-            <ol class="mucluctruyen">
-                @php
-                    $mucluc = count($chapter);
-                @endphp
-                @if ($mucluc > 0)
-                    @foreach ($chapter as $key => $chap)
-                        <li> <a href="{{ url('xem-chapter/' . $chap->slug_chapter) }}"> {{ $chap->tieude }} </a> </li>
-                    @endforeach
-                @else
-                    <h4> Mục lục đang cập nhật... </h4>
-                @endif
-            </ol>
+            @if ($lock)
+                <ol class="mucluctruyen">
+                    @php
+                        $mucluc = count($chapter);
+                    @endphp
+                    @if ($mucluc > 0)
+                        @foreach ($chapter as $key => $chap)
+                            <li> <a href="{{ url('xem-chapter/' . $chap->slug_chapter) }}"> {{ $chap->tieude }} </a> </li>
+                        @endforeach
+                    @else
+                        <h4> Mục lục đang cập nhật... </h4>
+                    @endif
+                </ol>
+            @else
+                <ol class="text-center">
+                    <h4>Truyện đang tình trạng khóa.</h4>
+                    <h5 class="text-danger">Vui lòng mua truyện để xem</h5>
+                </ol>
+            @endif
             <div class="fb-like" data-href="{{ \URL::current() }}" data-width="" data-layout="button_count"
                 data-action="like" data-size="large" data-share="true"></div>
             <div class="fb-comments" data-href="{{ \URL::current() }}" data-width="100%" data-numposts="20"> </div>
