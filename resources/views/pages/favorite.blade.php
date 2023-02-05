@@ -24,7 +24,7 @@
               <p class="font-weight-light">Bạn vẫn chưa đọc chương nào cả</p>
             @endif
             <a href="{{url('huy-bo/'.$value->slug_truyen."/".$value->id)}}">
-              <p class="fa fa-ban" style="color: red"> <b> bỏ theo dõi</b></p>
+              <p class="fa fa-ban" style="color: red"> <b> Bỏ theo dõi</b></p>
             </a>
           </div>
 

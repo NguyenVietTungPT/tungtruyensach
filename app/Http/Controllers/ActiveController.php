@@ -34,14 +34,13 @@ class ActiveController extends Controller
   {
     $danhmuc = DanhmucTruyen::orderBy('id', 'DESC')->get();
     $truyen = Active::orderBy('created_at', 'desc')
-      ->select("active_account.chapter", "active_account.title", "chapter.tieude", "truyen.*","active_account.user_id")
-      ->join("truyen", "truyen.id", "active_account.manga_id")
-      ->join("chapter", "chapter.slug_chapter", "active_account.chapter")
+      ->leftjoin("truyen", "truyen.id", "active_account.manga_id")
+      ->leftjoin("chapter", "chapter.slug_chapter", "active_account.chapter")
       ->where("user_id", Auth::user()->id)
       ->where("type", 1)
       ->where('truyen.kichhoat', 0)
       ->paginate(8)->unique('manga_id');
-
+    // dd($truyen);
     $theloai = Theloai::orderBy('id', 'DESC')->get();
     return view('pages.history')->with(compact('truyen', 'danhmuc', 'theloai'));
   }

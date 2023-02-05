@@ -119,7 +119,7 @@
 
     {{-- Truyện nổi bật --}}
     <div class="col-md-3">
-        <h3 class="card-header"> Truyện nổi bật </h3>
+        <h3 class="card-header"> Truyện nổi bật</h3>
         @foreach ($truyennoibat as $key => $noibat)
             <div class="row mt-2 sidebarr">
                 <div class="col-md-5">
@@ -128,7 +128,7 @@
                         src="{{asset('public/uploads/truyen/'.$noibat->hinhanh)}}" alt="{{$noibat->tentruyen}}">
                     </a>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-7" style="padding-left: 20px">
                     <a href="{{url('xem-truyen/'.$noibat->slug_truyen)}}">
                         <p> {{$noibat->tentruyen}} </p>
                     </a>
@@ -146,7 +146,7 @@
                         src="{{asset('public/uploads/truyen/'.$xemnhieu->hinhanh)}}" alt="{{$xemnhieu->tentruyen}}">
                     </a>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-7" style="padding-left: 20px">
                     <a href="{{url('xem-truyen/'.$xemnhieu->slug_truyen)}}">
                         <p> {{$xemnhieu->tentruyen}} </p>
                     </a>

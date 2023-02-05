@@ -158,7 +158,7 @@ class SachController extends Controller
             $sach->hinhanh = $new_image;
         }
         $sach->save();        
-        return redirect()->back()->with('status', 'Thêm sách thành công!');
+        return redirect()->back()->with('status', 'Cập nhật sách thành công!');
     }
 
     /**
