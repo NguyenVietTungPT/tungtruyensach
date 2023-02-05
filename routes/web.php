@@ -53,6 +53,8 @@ Route::get('/the-loai/{slug}', [IndexController::class, 'theloai']);
 Route::get('/doc-truyen', [IndexController::class, 'doctruyen']);
 Route::get('/doc-sach', [IndexController::class, 'docsach']);
 Route::post('/xemsachnhanh', [IndexController::class, 'xemsachnhanh']);
+Route::post('/vnpay_payment', [IndexController::class, 'vnpay_payment']);
+
 Route::get('/mua-sam', [IndexController::class, 'muasam']);
 Route::get('/product-detail/{slug}', [IndexController::class, 'productdetail']);
 
